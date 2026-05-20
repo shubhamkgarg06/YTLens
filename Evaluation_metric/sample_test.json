@@ -1,0 +1,201 @@
+[
+    {
+        "query": "What can Python be used for?",
+        "relevant_chunks": [0, 1]
+    },
+
+    {
+        "query": "Which websites use Python and Django?",
+        "relevant_chunks": [1]
+    },
+
+    {
+        "query": "Why should we check add Python to path during installation?",
+        "relevant_chunks": [1]
+    },
+
+    {
+        "query": "How do you create a new Python file in PyCharm?",
+        "relevant_chunks": [3, 4]
+    },
+
+    {
+        "query": "What is a string in Python?",
+        "relevant_chunks": [4]
+    },
+
+    {
+        "query": "How do variables work in Python?",
+        "relevant_chunks": [5, 6, 7]
+    },
+
+    {
+        "query": "What are boolean values in Python?",
+        "relevant_chunks": [8]
+    },
+
+    {
+        "query": "How does the input function work?",
+        "relevant_chunks": [9, 10]
+    },
+
+    {
+        "query": "Why did subtracting birth year from 2020 cause an error?",
+        "relevant_chunks": [11, 12, 13]
+    },
+
+    {
+        "query": "What is type conversion in Python?",
+        "relevant_chunks": [13]
+    },
+
+    {
+        "query": "Difference between int and float in Python",
+        "relevant_chunks": [13, 15, 16]
+    },
+
+    {
+        "query": "Why did adding 10 and 20 produce 1020?",
+        "relevant_chunks": [14, 15]
+    },
+
+    {
+        "query": "How do you convert a float to string in Python?",
+        "relevant_chunks": [16]
+    },
+
+    {
+        "query": "What are string methods in Python?",
+        "relevant_chunks": [17, 18]
+    },
+
+    {
+        "query": "How does the find method work in Python strings?",
+        "relevant_chunks": [19]
+    },
+
+    {
+        "query": "How does replace method work in Python?",
+        "relevant_chunks": [20]
+    },
+
+    {
+        "query": "What does the in operator do in Python strings?",
+        "relevant_chunks": [21]
+    },
+
+    {
+        "query": "Explain arithmetic operators in Python",
+        "relevant_chunks": [22]
+    },
+
+    {
+        "query": "What is the difference between / and // in Python?",
+        "relevant_chunks": [22]
+    },
+
+    {
+        "query": "What is operator precedence in Python?",
+        "relevant_chunks": [24]
+    },
+
+    {
+        "query": "What are comparison operators in Python?",
+        "relevant_chunks": [25, 26]
+    },
+
+    {
+        "query": "What are logical operators in Python?",
+        "relevant_chunks": [26, 27, 28]
+    },
+
+    {
+        "query": "How do if statements work in Python?",
+        "relevant_chunks": [28, 29, 30]
+    },
+
+    {
+        "query": "How does indentation work in Python?",
+        "relevant_chunks": [30]
+    },
+
+    {
+        "query": "What are elif and else used for?",
+        "relevant_chunks": [31, 32]
+    },
+
+    {
+        "query": "Explain the weight converter exercise",
+        "relevant_chunks": [33, 34, 35, 36]
+    },
+
+    {
+        "query": "Why did the weight converter program throw string and float errors?",
+        "relevant_chunks": [35, 36]
+    },
+
+    {
+        "query": "How do while loops work in Python?",
+        "relevant_chunks": [38, 39]
+    },
+
+    {
+        "query": "What happens if we do not increment i in a while loop?",
+        "relevant_chunks": [38]
+    },
+
+    {
+        "query": "How was the triangle star pattern printed?",
+        "relevant_chunks": [40]
+    },
+
+    {
+        "query": "What are lists in Python?",
+        "relevant_chunks": [41]
+    },
+
+    {
+        "query": "How do negative indexes work in Python lists?",
+        "relevant_chunks": [42]
+    },
+
+    {
+        "query": "How does list slicing work in Python?",
+        "relevant_chunks": [43]
+    },
+
+    {
+        "query": "How do append and insert methods work in Python lists?",
+        "relevant_chunks": [44, 45]
+    },
+
+    {
+        "query": "How do you remove elements from a list?",
+        "relevant_chunks": [46]
+    },
+
+    {
+        "query": "How do for loops work in Python?",
+        "relevant_chunks": [47, 48]
+    },
+
+    {
+        "query": "Difference between while loop and for loop",
+        "relevant_chunks": [48, 49]
+    },
+
+    {
+        "query": "What does the range function do in Python?",
+        "relevant_chunks": [49, 50, 51]
+    },
+
+    {
+        "query": "What are tuples in Python?",
+        "relevant_chunks": [52, 53]
+    },
+
+    {
+        "query": "Why are tuples immutable?",
+        "relevant_chunks": [52]
+    }
+]

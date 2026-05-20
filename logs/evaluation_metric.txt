@@ -1,0 +1,549 @@
+# Python Tutorial RAG Evaluation Dataset
+
+Video: [https://www.youtube.com/watch?v=kqtD5dpn9C8](https://www.youtube.com/watch?v=kqtD5dpn9C8)
+
+Purpose:
+This dataset is designed to evaluate:
+
+* Retrieval quality
+* Conversational reformulation
+* Timestamp retrieval
+* Grounding
+* Hallucination resistance
+* Retrieval precision and recall
+
+---
+
+# Evaluation Fields
+
+Each test case contains:
+
+* Query Type
+* User Question
+* Expected Topic
+* Expected Retrieval Behavior
+* Expected Timestamp Range
+* Difficulty Level
+* Notes
+
+---
+
+# TEST CASES
+
+---
+
+## Test Case 1
+
+### Query Type
+
+Definition Retrieval
+
+### User Question
+
+What is Python?
+
+### Expected Topic
+
+Python definition and use cases
+
+### Expected Retrieval Behavior
+
+Should retrieve introduction section from beginning of video.
+
+### Expected Timestamp Range
+
+0:02 → 0:52
+
+### Difficulty Level
+
+Easy
+
+### Notes
+
+Tests basic semantic retrieval.
+
+---
+
+## Test Case 2
+
+### Query Type
+
+Concept Retrieval
+
+### User Question
+
+What are variables?
+
+### Expected Topic
+
+Variables and storing data in memory
+
+### Expected Timestamp Range
+
+4:54 → 7:05
+
+### Difficulty Level
+
+Easy
+
+### Notes
+
+Tests basic educational concept retrieval.
+
+---
+
+## Test Case 3
+
+### Query Type
+
+Concept Retrieval
+
+### User Question
+
+What are data types?
+
+### Expected Topic
+
+Primitive and complex data types
+
+### Expected Timestamp Range
+
+45:02 → 46:19
+
+### Difficulty Level
+
+Easy
+
+### Notes
+
+Should retrieve chunk discussing integers, floats, booleans, strings, and lists.
+
+---
+
+## Test Case 4
+
+### Query Type
+
+Conversational Retrieval
+
+### User Question
+
+Are there some more?
+
+### Expected Topic
+
+Additional Python data types
+
+### Expected Retrieval Behavior
+
+Should use previous conversation context related to data types.
+
+### Expected Timestamp Range
+
+45:02 → 46:19
+57:23 → 58:42
+
+### Difficulty Level
+
+Medium
+
+### Notes
+
+Tests conversational reformulation quality.
+
+---
+
+## Test Case 5
+
+### Query Type
+
+Concept Retrieval
+
+### User Question
+
+What are operators?
+
+### Expected Topic
+
+Arithmetic operators, comparison operators, and in operator
+
+### Expected Timestamp Range
+
+22:39 → 23:53
+24:54 → 26:10
+27:08 → 28:24
+
+### Difficulty Level
+
+Medium
+
+### Notes
+
+Should avoid unrelated chunks.
+Tests retrieval precision.
+
+---
+
+## Test Case 6
+
+### Query Type
+
+Concept Retrieval
+
+### User Question
+
+What are loops?
+
+### Expected Topic
+
+While loops and for loops
+
+### Expected Timestamp Range
+
+41:58 → 43:05
+51:51 → 53:06
+
+### Difficulty Level
+
+Easy
+
+### Notes
+
+Tests multi-chunk retrieval.
+
+---
+
+## Test Case 7
+
+### Query Type
+
+Conversational Retrieval
+
+### User Question
+
+So we have two types of these?
+
+### Expected Topic
+
+Two types of loops in Python
+
+### Expected Retrieval Behavior
+
+Should reformulate using previous loop discussion.
+
+### Expected Timestamp Range
+
+41:58 → 43:05
+51:51 → 53:06
+
+### Difficulty Level
+
+Hard
+
+### Notes
+
+Tests conversational reference resolution.
+
+---
+
+## Test Case 8
+
+### Query Type
+
+Negative Retrieval
+
+### User Question
+
+What is C++?
+
+### Expected Topic
+
+No valid topic in video
+
+### Expected Retrieval Behavior
+
+Should respond that no reference exists in video.
+
+### Expected Timestamp Range
+
+None
+
+### Difficulty Level
+
+Easy
+
+### Notes
+
+Tests hallucination resistance.
+
+---
+
+## Test Case 9
+
+### Query Type
+
+Negative Retrieval
+
+### User Question
+
+Is C++ better?
+
+### Expected Topic
+
+No valid comparison exists in video
+
+### Expected Retrieval Behavior
+
+Should avoid hallucinating language comparisons.
+
+### Expected Timestamp Range
+
+None
+
+### Difficulty Level
+
+Medium
+
+### Notes
+
+Tests grounded answering.
+
+---
+
+## Test Case 10
+
+### Query Type
+
+Summary Retrieval
+
+### User Question
+
+What is this video about?
+
+### Expected Topic
+
+Python tutorial overview
+
+### Expected Retrieval Behavior
+
+Should retrieve introduction section.
+
+### Expected Timestamp Range
+
+0:02 → 1:51
+
+### Difficulty Level
+
+Medium
+
+### Notes
+
+Tests summary-style semantic retrieval.
+
+---
+
+## Test Case 11
+
+### Query Type
+
+Timestamp Retrieval
+
+### User Question
+
+Explain the section from 41:58 to 43:05
+
+### Expected Topic
+
+While loops
+
+### Expected Retrieval Behavior
+
+Should bypass semantic retrieval and use timestamp routing.
+
+### Expected Timestamp Range
+
+41:58 → 43:05
+
+### Difficulty Level
+
+Easy
+
+### Notes
+
+Tests timestamp routing pipeline.
+
+---
+
+## Test Case 12
+
+### Query Type
+
+Timestamp Retrieval
+
+### User Question
+
+What is explained around 45 minutes?
+
+### Expected Topic
+
+Python data types and lists
+
+### Expected Retrieval Behavior
+
+Should use timestamp extraction chain.
+
+### Expected Timestamp Range
+
+45:02 → 46:19
+
+### Difficulty Level
+
+Medium
+
+### Notes
+
+Tests LLM timestamp extraction.
+
+---
+
+## Test Case 13
+
+### Query Type
+
+Exact Concept Retrieval
+
+### User Question
+
+What are tuples?
+
+### Expected Topic
+
+Tuple definition and immutability
+
+### Expected Timestamp Range
+
+57:23 → 58:42
+
+### Difficulty Level
+
+Easy
+
+### Notes
+
+Good test for exact keyword retrieval.
+
+---
+
+## Test Case 14
+
+### Query Type
+
+Precision Retrieval
+
+### User Question
+
+What is the in operator?
+
+### Expected Topic
+
+Python in operator
+
+### Expected Timestamp Range
+
+22:39 → 23:53
+50:42 → 51:55
+
+### Difficulty Level
+
+Medium
+
+### Notes
+
+Tests whether retriever fetches operator-specific chunks instead of generic Python chunks.
+
+---
+
+## Test Case 15
+
+### Query Type
+
+Conversational Retrieval
+
+### User Question
+
+Which one is best?
+
+### Expected Topic
+
+Should depend on previous conversational context.
+
+### Expected Retrieval Behavior
+
+Should reformulate based on chat history.
+
+### Expected Timestamp Range
+
+Depends on prior question
+
+### Difficulty Level
+
+Hard
+
+### Notes
+
+Excellent test for conversational grounding.
+
+---
+
+# Suggested Evaluation Columns For Spreadsheet
+
+| Query           | Retrieved Correct Chunk? | Precision | Recall | Hallucination? | Good Reformulation? | Notes |
+| --------------- | ------------------------ | --------- | ------ | -------------- | ------------------- | ----- |
+| What is Python? |                          |           |        |                |                     |       |
+| What are loops? |                          |           |        |                |                     |       |
+| What is C++?    |                          |           |        |                |                     |       |
+
+---
+
+# Recommended Metrics To Observe
+
+## Retrieval Metrics
+
+* Hit Rate
+* Precision
+* Recall
+* Top-k Accuracy
+* Redundant Retrievals
+
+## Answer Metrics
+
+* Grounding
+* Faithfulness
+* Hallucination Resistance
+* Conversational Continuity
+* Timestamp Accuracy
+
+---
+
+# Suggested Future Experiments
+
+1. Compare similarity search vs MMR
+2. Compare chunk sizes
+3. Compare overlap sizes
+4. Compare embedding models
+5. Compare hybrid retrieval vs vector-only retrieval
+6. Add reranking
+7. Evaluate with Ragas
+
+---
+
+# Most Important Goal
+
+The purpose of this dataset is NOT only to obtain scores.
+
+The real goal is:
+
+* understanding retrieval behavior
+* identifying retrieval failure patterns
+* improving retrieval precision and recall
+* building retrieval engineering intuition

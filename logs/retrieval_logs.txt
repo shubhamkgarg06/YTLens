@@ -1,0 +1,387 @@
+
+USER QUESTION:
+What is video about
+
+RETRIEVAL TYPE:
+semantic_retrieval
+
+REFINED QUESTION:
+What is the video about?
+
+RETRIEVED CONTEXT:
+
+[59:57 → 60:04]
+
+the link is below this video. Hey Mosh, hi Mosh. 
+
+
+[13:43 → 14:53]
+
+So, let's see what's going on here. On the first line, we call the input function. This returns a string. On the second line, we pass the string to our int function. The int function will return the numeric representation of the birth year. Then, we subtract it from 2020, we get the age, and store it in the age variable. Now, let's run our program. So, 1982, and there you go. I'm 38 years old. So, this is how the int function works. Now, we also have another built-in function called float. That is for converting a value to a floating-point number. A floating-point number in Python and other programming languages is a number with a decimal point. So, 10 is an integer, and 10.1 is a float. So, we have int, we have float, and we also have bool for converting a value to a boolean. And finally, we have str for converting a value to a string. So, these are the built-in functions for converting the type of our variables. Now, here's a little exercise for you. I want you to write a basic calculator 
+
+
+[59:33 → 60:04]
+
+Hey guys, I just wanted to let you know that I have an online coding school at codewithmosh.com where you can find plenty of courses on web and mobile development. In fact, I have a comprehensive Python course that teaches you everything about Python from the basics to more advanced concepts. So, after you watch this tutorial, if you want to learn more, you may want to look at my Python course. It comes with a 30-day money-back guarantee and a certificate of completion you can add to your resume. In case you're interested, the link is below this video. Hey Mosh, hi Mosh. 
+
+
+
+FINAL ANSWER:
+The video appears to be about programming, specifically Python. It discusses built-in functions such as int, float, bool, and str for converting variable types (13:43 → 14:53). The video also mentions a comprehensive Python course available at codewithmosh.com (59:33 → 60:04).
+
+================================================================================
+
+================================================================================
+
+USER QUESTION:
+what c++
+
+RETRIEVAL TYPE:
+semantic_retrieval
+
+REFINED QUESTION:
+What is C++?
+
+RETRIEVED CONTEXT:
+
+[43:58 → 45:10]
+
+So, let's run the program. Now, we see the numbers one to 1 thousand. It's much easier than 1 thousand lines of code, each printing a number. Okay? Now, let me show you something really cool. So, I'm going to change this to 10. Now, instead of printing I, I want to print an expression. So, I'm going to multiply I by a string, an asterisk. Now, you might be confused here, because earlier I told you that in Python, we cannot concatenate a number to a string. But here I'm using the multiplication operator. Well, this is different. We can multiply a number by a string, and this will repeat that string based on the value of that number. So, if I is one, we're going to see one asterisk. If I is five, we're going to see five asterisks. Let me show you. So, when we run this program, we see this triangle shape, because in the first iteration, I is one, so we see one asterisk. In every iteration, I is incremented by one, so we see one extra asterisk. And finally, in the last iteration, I is 10, and we see 10 
+
+
+[19:33 → 20:40]
+
+dot, you can see all the capabilities available in a string object. These are basically functions that you can call, just like the print or input functions. The difference is that the print and input functions are general-purpose functions. They don't belong to a particular object, but the functions you see over here are specific to a string. Now more accurately, we refer to these as methods. So when a function is part of an object, we refer to that function as a method. So, let's look at a few examples. Here we have a function or a method called upper and we use that to convert a string to upper case. So if we print course.upper and run this program, you can see our course in upper case. Pretty useful. Now what you need to understand here is that this upper method does not change our original string. It will return a new string. So right after this, if we print course, you can see that our course variable is not affected. So the upper method returns a new string. Now similarly, we have another method 
+
+
+[5:56 → 7:05]
+
+and then we type a value. Let's say 20. So, with this, we're storing the number 20 somewhere in our computer's memory and we're attaching this age as a label for that memory location. So, now we can read the value at this memory location and print it on the terminal. So, instead of printing hello world, we want to print the value of the age variable. So, I'm going to delete what we have inside parentheses and type age. Note that I'm not adding quotes because if I run this program, we'll see the text age on the terminal. We don't want that. We want the value of the age variable. So, let's remove the quotes and print the value of the age variable. Now, here on the toolbar, you can click on this play icon to run your program, or you can use the shortcut that I showed you in the last video. So, the shortcut is over here. On a Mac, that's control, shift, and R. So, there you go. Now, you can see the value of the age variable. Now, we can also change the value of a variable. For example, on line two 
+
+
+
+FINAL ANSWER:
+I could not find its reference in this video.
+
+================================================================================
+
+================================================================================
+
+USER QUESTION:
+What is python
+
+RETRIEVAL TYPE:
+semantic_retrieval
+
+REFINED QUESTION:
+What is the definition and purpose of the Python programming language?
+
+RETRIEVED CONTEXT:
+
+[0:02 → 0:52]
+
+In this Python tutorial, you're going to learn everything you need to know to start programming in Python. If you want to learn Python programming for data science, machine learning, or web development, this Python tutorial is the perfect place to learn Python. You don't need any prior knowledge in Python or programming in general. I'm going to teach you everything from scratch. I'm Mosh Hamedani, and I've taught millions of people how to code through this channel. If you're new here, make sure to subscribe as I upload new videos every week. Now, let's jump in and get started. All right, before we get started, let me give you some ideas about what you can do with Python. That's a very common question. Python is a multi-purpose programming language, so you can use it for a variety of different tasks. You can use Python for machine learning and AI. In fact, Python is the number one language for machine learning and data science projects. Python is also very popular in web development. Using Python 
+
+
+[43:58 → 45:10]
+
+So, let's run the program. Now, we see the numbers one to 1 thousand. It's much easier than 1 thousand lines of code, each printing a number. Okay? Now, let me show you something really cool. So, I'm going to change this to 10. Now, instead of printing I, I want to print an expression. So, I'm going to multiply I by a string, an asterisk. Now, you might be confused here, because earlier I told you that in Python, we cannot concatenate a number to a string. But here I'm using the multiplication operator. Well, this is different. We can multiply a number by a string, and this will repeat that string based on the value of that number. So, if I is one, we're going to see one asterisk. If I is five, we're going to see five asterisks. Let me show you. So, when we run this program, we see this triangle shape, because in the first iteration, I is one, so we see one asterisk. In every iteration, I is incremented by one, so we see one extra asterisk. And finally, in the last iteration, I is 10, and we see 10 
+
+
+[4:54 → 6:03]
+
+On the top we go to the run menu and then select run. Note that there is a shortcut associated with this command. I always use shortcuts because they increase my productivity. So, let's click on this. Now, select app and over here you can see this little window. This is what we call the terminal window, and it shows the output of our program. So, here's the hello world message printed in the terminal window. Now, as you learn more Python, you will learn how to build applications that have a graphical user interface. That's an advanced topic, so for now, let's not worry about it. All right, now let's talk about variables. We use variables to temporarily store data in a computer's memory. For example, we can store the price of a product or someone's name, their email, their age, and so on. Let me show you. So, to declare a variable, we start by typing a name for that variable. Let's say age. Then we add an equal sign and then we type a value. Let's say 20. So, with this, we're storing the number 
+
+
+
+FINAL ANSWER:
+According to the context, Python is a multi-purpose programming language that can be used for a variety of different tasks, such as machine learning and AI, web development, and more (0:02 → 0:52). It is also the number one language for machine learning and data science projects.
+
+================================================================================
+
+================================================================================
+
+USER QUESTION:
+What are operators
+
+RETRIEVAL TYPE:
+semantic_retrieval
+
+REFINED QUESTION:
+What are operators in programming, specifically in languages such as Python or C++, and what are their functions and uses.
+
+RETRIEVED CONTEXT:
+
+[24:54 → 26:10]
+
+Now, for all these operators that you saw, we have an augmented assignment operator. Let me explain what it means. So let's say we have a variable called X and we set it to 10. Now we want to increment the value of X by three. So we have to write code like this. X = X + 3. When Python executes this code, it's going to evaluate this expression or this piece of code. The result of this expression is 10 + 3 which is 13. Then it will store 13 in the X. Now there is another way to achieve the same result using less code. We can type X + = 3. What we have on line three is exactly identical to what we have on line two. So what we have here is called the augmented assignment operator. So we have this assignment operator, but we have augmented or enhanced it. Now here we can also use subtraction to decrease the value of X by three. We can use multiplication and so on. So these are the arithmetic operators in Python. All right, let me ask you a question. I'm going to declare a variable called X 
+
+
+[22:39 → 23:53]
+
+to see if your string contains a character or a sequence of characters. One way to do that is using the find method that we talked about. So let's see if our string contains Python. Now when we run this program, that is the index of the first occurrence of the word Python in our string. Now in Python, we can also use the in operator. So we can write an expression like this. We type a string, Python, then we type in. This is a special keyword in Python. This is what we call the in operator. So after that, we type the name of our variable. So with this expression, we're checking to see if we have Python in course. As you can see, Python code is very readable. It's like plain English. So when we run this program, instead of seeing the index of the first occurrence of Python, we see a boolean value. This is more desirable in a lot of cases. Next we're going to look at arithmetic operations. In this tutorial, I'm going to show you the arithmetic operators that we have in Python. These are the same arithmetic 
+
+
+[19:33 → 20:40]
+
+dot, you can see all the capabilities available in a string object. These are basically functions that you can call, just like the print or input functions. The difference is that the print and input functions are general-purpose functions. They don't belong to a particular object, but the functions you see over here are specific to a string. Now more accurately, we refer to these as methods. So when a function is part of an object, we refer to that function as a method. So, let's look at a few examples. Here we have a function or a method called upper and we use that to convert a string to upper case. So if we print course.upper and run this program, you can see our course in upper case. Pretty useful. Now what you need to understand here is that this upper method does not change our original string. It will return a new string. So right after this, if we print course, you can see that our course variable is not affected. So the upper method returns a new string. Now similarly, we have another method 
+
+
+
+FINAL ANSWER:
+According to the context, operators in Python include:
+
+1. Augmented assignment operators, such as += (e.g., X += 3) [24:54 → 26:10]
+2. Arithmetic operators, such as + (addition), - (subtraction), and * (multiplication) [22:39 → 23:53, 24:54 → 26:10]
+3. The "in" operator, used to check if a character or sequence of characters is present in a string (e.g., "Python" in course) [22:39 → 23:53]
+
+Note that the context also mentions methods, which are functions that belong to a specific object, such as the upper method for strings [19:33 → 20:40]. However, these are not typically referred to as operators.
+
+================================================================================
+
+================================================================================
+
+USER QUESTION:
+I am getting confused in understanding loops
+
+RETRIEVAL TYPE:
+semantic_retrieval
+
+REFINED QUESTION:
+What are loops in programming and how do they work?
+
+RETRIEVED CONTEXT:
+
+[41:58 → 43:05]
+
+like this. Print one, then print two, print three, print four, and print five. Now, why is this a bad approach? Well, what if you wanted to print the numbers one to 1 million? We don't want to write 1 million lines of code, each line printing a number. This is where you use while loops. So, we start off by declaring a variable like I, and set it to our initial number. Let's say one. Then we type while, and here we type a condition. So, once again, we can use our comparison operators. Let's say I less than five. Less than or equal to five. As long as this condition is true, then the code that we write inside of the while block will get executed. So, here we type a colon and press enter. Now, we have a block of code. In this block, we can print I, and then we need to increment I by one. So, we set I to I + 1. If we don't do this, I will always be one, and this block of code will get executed indefinitely. It will never terminate. Basically, our program will continue running until it runs out 
+
+
+[51:51 → 53:06]
+
+Now, finally, there are times you want to know how many items you have in a list. To do that, you can use the built-in len function. So, let's print len of numbers. So, len is a built-in function, just like the print function. That is why it's highlighted as purple. It returns the number of elements in a list. Take a look. So, we have five elements in this list. When writing Python programs, there are times you want to iterate over a list and access each item individually. Let me show you. So, I'm going to declare a list of numbers, 1 2 3 4 5. Now, if we print this list, it comes out exactly like how we wrote it, using the square bracket notation. But, what if we wanted to print each item on a separate line? That is where we use the for loop. Let me show you. So, we're not going to print the entire list. Instead, we're going to type for. Now, we declare a variable, which is called a loop variable. Let's call it item. Then, we type in numbers. Next, we add a colon to start a block of code. So, this is what we call a for 
+
+
+[58:34 → 59:38]
+
+insert, remove, and so on. We only have count and index. Count returns the number of occurrences of an element. For example, if we have, let's say, two threes in this tuple, and call count of three, this will return two. The other method we have here is index, and this returns the index of the first occurrence of the given element. Now, these other methods you see here that start with an underscore, they're called magic methods. It's an advanced topic, and I've covered it in detail in my complete Python programming course. If you're interested, the link is down below this video. So, tuples are immutable. We cannot change them once we create them. Now, practically speaking, most of the time you would be using lists, but there are times that once you create a list of objects, you want to make sure that somewhere in your program, you or someone else is not going to accidentally modify that list. If that's the case, then you should use a tuple. Hey guys, I just wanted to let you know that I have an online coding school at 
+
+
+
+FINAL ANSWER:
+Loops in Python are used to execute a block of code repeatedly. There are two types of loops mentioned in the context: while loops and for loops.
+
+While loops (41:58 → 43:05) are used when you want to execute a block of code as long as a certain condition is true. The general syntax is:
+```
+while condition:
+    # block of code
+```
+For example, if you want to print numbers from 1 to 5, you can use a while loop like this:
+```
+i = 1
+while i <= 5:
+    print(i)
+    i = i + 1
+```
+If you don't increment the variable `i` inside the loop, it will run indefinitely.
+
+For loops (51:51 → 53:06) are used when you want to iterate over a list or a tuple and access each item individually. The general syntax is:
+```
+for loop_variable in list:
+    # block of code
+```
+For example, if you have a list of numbers `[1, 2, 3, 4, 5]`, you can use a for loop to print each number on a separate line like this:
+```
+numbers = [1, 2, 3, 4, 5]
+for item in numbers:
+    print(item)
+```
+This will print each number in the list on a separate line.
+
+================================================================================
+
+================================================================================
+
+USER QUESTION:
+so we have two types of these in python?
+
+RETRIEVAL TYPE:
+semantic_retrieval
+
+REFINED QUESTION:
+What are the two types of loops available in Python?
+
+RETRIEVED CONTEXT:
+
+[51:51 → 53:06]
+
+Now, finally, there are times you want to know how many items you have in a list. To do that, you can use the built-in len function. So, let's print len of numbers. So, len is a built-in function, just like the print function. That is why it's highlighted as purple. It returns the number of elements in a list. Take a look. So, we have five elements in this list. When writing Python programs, there are times you want to iterate over a list and access each item individually. Let me show you. So, I'm going to declare a list of numbers, 1 2 3 4 5. Now, if we print this list, it comes out exactly like how we wrote it, using the square bracket notation. But, what if we wanted to print each item on a separate line? That is where we use the for loop. Let me show you. So, we're not going to print the entire list. Instead, we're going to type for. Now, we declare a variable, which is called a loop variable. Let's call it item. Then, we type in numbers. Next, we add a colon to start a block of code. So, this is what we call a for 
+
+
+[43:00 → 44:05]
+
+never terminate. Basically, our program will continue running until it runs out of memory. So, in the first iteration, I is one, is less than five, so Python is going to execute this block of code. It will print one on the terminal, and then I becomes two. Then the control moves back over here. So, Python evaluates this condition. Two is less than or equal to five, so the condition is true, and once again, Python is going to execute this block one more time. In the second iteration, we're going to see two on the terminal, and then I will become three. So, this will continue until this condition is no longer true. Let me show you. So, let's run this program. Now, we see the numbers one to five. So, this is the beauty of while loops. I can easily change five to 1 thousand. And by the way, I'm separating these three digits using an underscore. This makes my number more readable. We don't have to add this, but it just makes our code more readable. So, let's run the program. Now, we see the numbers one to 1 
+
+
+[16:00 → 17:28]
+
+second is going to be 20 as a string. So, when we combine two strings, 10 plus 20, we'll get 1020 because we're dealing with textual data, okay? So, to solve this problem, we need to convert the values we read to their numeric representation. So, over here, we're going to pass first to our int function, and here as well. Now, let's run our program. So, we enter 10 and 20, we get 30. What if we enter a floating-point number? So, 10.1 and 20. We got an error. So, to solve this problem, we need to treat both these values as floats. So, instead of the int function, we're going to use the float function. Now, let's run our program one more time. We enter a whole number and a floating-point number. So, the result is correct. Now, let's add a label over here. So, sum is plus sum. Let's run our program one more time. 10 and 20. Once again, we got an error. The error is saying that Python can only concatenate strings, not floats to strings. So, on line four, we have a string. We're concatenating this with a float 
+
+
+
+FINAL ANSWER:
+I could not find its reference in this video.
+
+================================================================================
+
+================================================================================
+
+USER QUESTION:
+what are different data types?
+
+RETRIEVAL TYPE:
+semantic_retrieval
+
+REFINED QUESTION:
+What are the different data types available in programming, including numeric, string, boolean, list, tuple, dictionary, and set data types, and how are they used to store and manipulate various types of data in a program?
+
+RETRIEVED CONTEXT:
+
+[45:02 → 46:19]
+
+asterisk. And finally, in the last iteration, I is 10, and we see 10 asterisks on the terminal. So, you have learned about three types of data in Python. We have numbers, which can be integers or floats. We have booleans and strings. These are what they refer to as primitive or basic types in Python. Now, in Python, we have a bunch of complex types as well. These complex types are very useful in building real applications. In this tutorial, we're going to talk about lists. We use lists whenever we want to represent a list of objects, like a list of numbers or a list of names. Let me show you. So, I'm going to declare a variable called names, and set it to a list of names. So, here we add square brackets to represent a list. And now we can add one or more objects inside this list. In this list, we add a bunch of names, like John, Bob, Mosh, Sam, and Mary. So, we separate these elements, these items, using a comma. Okay? Now, let's print our list. So, print names. Take a look. It comes out exactly like how we wrote 
+
+
+[50:42 → 51:55]
+
+So, I'm going to pass -1. Now, let's run our program. We can see -1 appeared at the beginning of our list. We also have a method for removing items. So, let's call remove three. Let's run the program. Three is gone. We only have 1 2 4 and 5. Now, if you want to remove all the items in the list, we call the clear method. So, clear. This method doesn't expect any values. So, let's run our program. Our list is empty. Now, sometimes you want to know if a given item exists in our list or not. To do that, we use the in operator. So, let's remove this line. Instead of printing our numbers list, I'm going to print an expression. One in numbers. So, here we're using the in operator. We're checking to see if one is in the numbers list. So, this is a boolean expression. It returns a boolean value. Take a look. So, we get true. Obviously, if we search for a value that doesn't exist in this list, like 10, we get false, okay? Now, finally, there are times you want to know how many items you have in a 
+
+
+[19:33 → 20:40]
+
+dot, you can see all the capabilities available in a string object. These are basically functions that you can call, just like the print or input functions. The difference is that the print and input functions are general-purpose functions. They don't belong to a particular object, but the functions you see over here are specific to a string. Now more accurately, we refer to these as methods. So when a function is part of an object, we refer to that function as a method. So, let's look at a few examples. Here we have a function or a method called upper and we use that to convert a string to upper case. So if we print course.upper and run this program, you can see our course in upper case. Pretty useful. Now what you need to understand here is that this upper method does not change our original string. It will return a new string. So right after this, if we print course, you can see that our course variable is not affected. So the upper method returns a new string. Now similarly, we have another method 
+
+
+
+FINAL ANSWER:
+According to the context, the different data types in Python are:
+
+1. Primitive or basic types:
+   - Numbers (which can be integers or floats) [45:02 → 46:19]
+   - Booleans
+   - Strings
+
+2. Complex types:
+   - Lists (used to represent a list of objects, like a list of numbers or a list of names) [45:02 → 46:19, 50:42 → 51:55]
+
+================================================================================
+
+================================================================================
+
+USER QUESTION:
+are there some more?
+
+RETRIEVAL TYPE:
+semantic_retrieval
+
+REFINED QUESTION:
+What are all the different data types available in Python, including primitive and complex types, such as numbers, booleans, strings, lists, tuples, dictionaries, and sets?
+
+RETRIEVED CONTEXT:
+
+[45:02 → 46:19]
+
+asterisk. And finally, in the last iteration, I is 10, and we see 10 asterisks on the terminal. So, you have learned about three types of data in Python. We have numbers, which can be integers or floats. We have booleans and strings. These are what they refer to as primitive or basic types in Python. Now, in Python, we have a bunch of complex types as well. These complex types are very useful in building real applications. In this tutorial, we're going to talk about lists. We use lists whenever we want to represent a list of objects, like a list of numbers or a list of names. Let me show you. So, I'm going to declare a variable called names, and set it to a list of names. So, here we add square brackets to represent a list. And now we can add one or more objects inside this list. In this list, we add a bunch of names, like John, Bob, Mosh, Sam, and Mary. So, we separate these elements, these items, using a comma. Okay? Now, let's print our list. So, print names. Take a look. It comes out exactly like how we wrote 
+
+
+[57:23 → 58:42]
+
+variable. So, we can type range of five, and this will return a range object holding the numbers zero to four. Take a look. There you go. So, we don't really need to store the result in a separate variable like numbers. There you go. In this tutorial, we're going to talk about tuples in Python. Tuples are kind of like lists. We use them to store a sequence of objects, but tuples are immutable, which means we cannot change them once we create them. Let me show you. So, I'm going to start by defining a list of numbers, 1 2 3. Now, we use square brackets to define a list, and parentheses to define a tuple. So, now this numbers variable is storing a tuple. If we try to reassign, let's say the first element, we're going to get an error. Tuple object does not support item assignment. So, this is what I meant by tuples are immutable. They're unchangeable. Also, if we type numbers {dot} you don't see any methods like append, insert, remove, and so on. We only have count and index. Count returns the 
+
+
+[13:43 → 14:53]
+
+So, let's see what's going on here. On the first line, we call the input function. This returns a string. On the second line, we pass the string to our int function. The int function will return the numeric representation of the birth year. Then, we subtract it from 2020, we get the age, and store it in the age variable. Now, let's run our program. So, 1982, and there you go. I'm 38 years old. So, this is how the int function works. Now, we also have another built-in function called float. That is for converting a value to a floating-point number. A floating-point number in Python and other programming languages is a number with a decimal point. So, 10 is an integer, and 10.1 is a float. So, we have int, we have float, and we also have bool for converting a value to a boolean. And finally, we have str for converting a value to a string. So, these are the built-in functions for converting the type of our variables. Now, here's a little exercise for you. I want you to write a basic calculator 
+
+
+
+FINAL ANSWER:
+Yes, there are more data types in Python. In addition to the primitive types (numbers, booleans, and strings) and lists, we also have:
+
+1. Tuples (57:23 → 58:42): These are similar to lists but are immutable, meaning they cannot be changed once created.
+2. Ranges (57:23 → 58:42): These are used to represent a sequence of numbers.
+3. Floats (13:43 → 14:53): These are numbers with a decimal point.
+4. Boolean values (13:43 → 14:53): These can be either True or False.
+5. Integers (13:43 → 14:53): These are whole numbers.
+
+These data types are used to store and manipulate different types of data in Python.
+
+================================================================================
+
+================================================================================
+
+USER QUESTION:
+which one is best
+
+RETRIEVAL TYPE:
+semantic_retrieval
+
+REFINED QUESTION:
+What is the best data type to use in Python?
+
+RETRIEVED CONTEXT:
+
+[45:02 → 46:19]
+
+asterisk. And finally, in the last iteration, I is 10, and we see 10 asterisks on the terminal. So, you have learned about three types of data in Python. We have numbers, which can be integers or floats. We have booleans and strings. These are what they refer to as primitive or basic types in Python. Now, in Python, we have a bunch of complex types as well. These complex types are very useful in building real applications. In this tutorial, we're going to talk about lists. We use lists whenever we want to represent a list of objects, like a list of numbers or a list of names. Let me show you. So, I'm going to declare a variable called names, and set it to a list of names. So, here we add square brackets to represent a list. And now we can add one or more objects inside this list. In this list, we add a bunch of names, like John, Bob, Mosh, Sam, and Mary. So, we separate these elements, these items, using a comma. Okay? Now, let's print our list. So, print names. Take a look. It comes out exactly like how we wrote 
+
+
+[18:32 → 19:40]
+
+Now, we can change this expression to first plus second. That is another way to write this piece of code. So, type conversion is important in Python and other programming languages. There are times you need to convert the type of a variable to a different type. In this tutorial, I'm going to show you a bunch of cool things you can do with strings in Python. So, let's start by declaring a variable called course and set it to Python for beginners. Now, this string that we have over here is technically an object. An object in Python is like an object in the real world. As a metaphor, think of the remote control of your TV. This remote control is an object, and it has a bunch of capabilities. It has a bunch of buttons for turning your TV on, turning it off, changing the volume, and so on. Now, in this program, this course variable is storing a string object. This string object has a bunch of capabilities. So, if you type course. dot, you can see all the capabilities available in a string object. These are 
+
+
+[16:00 → 17:28]
+
+second is going to be 20 as a string. So, when we combine two strings, 10 plus 20, we'll get 1020 because we're dealing with textual data, okay? So, to solve this problem, we need to convert the values we read to their numeric representation. So, over here, we're going to pass first to our int function, and here as well. Now, let's run our program. So, we enter 10 and 20, we get 30. What if we enter a floating-point number? So, 10.1 and 20. We got an error. So, to solve this problem, we need to treat both these values as floats. So, instead of the int function, we're going to use the float function. Now, let's run our program one more time. We enter a whole number and a floating-point number. So, the result is correct. Now, let's add a label over here. So, sum is plus sum. Let's run our program one more time. 10 and 20. Once again, we got an error. The error is saying that Python can only concatenate strings, not floats to strings. So, on line four, we have a string. We're concatenating this with a float 
+
+
+
+FINAL ANSWER:
+I could not find its reference in this video.
+
+================================================================================
+
+================================================================================
+
+USER QUESTION:
+is c++ better?
+
+RETRIEVAL TYPE:
+semantic_retrieval
+
+REFINED QUESTION:
+Is C++ a better programming language than other languages, such as Python, in terms of performance, reliability, and overall usability?
+
+RETRIEVED CONTEXT:
+
+[59:33 → 60:04]
+
+Hey guys, I just wanted to let you know that I have an online coding school at codewithmosh.com where you can find plenty of courses on web and mobile development. In fact, I have a comprehensive Python course that teaches you everything about Python from the basics to more advanced concepts. So, after you watch this tutorial, if you want to learn more, you may want to look at my Python course. It comes with a 30-day money-back guarantee and a certificate of completion you can add to your resume. In case you're interested, the link is below this video. Hey Mosh, hi Mosh. 
+
+
+[0:45 → 1:51]
+
+science projects. Python is also very popular in web development. Using Python and a framework called Django, you can build amazing websites. Here are five websites powered with Python and Django: YouTube, Instagram, Spotify, Dropbox, and Pinterest. You can also use Python in automation. With Python, you can save your time and increase your productivity by automating repetitive tasks. So, why are you learning Python? Are you learning it for automation, for data science, or web development? Let me know in the comments section below. All right, the first thing I want you to do is to head over to python.org to download the latest version of Python. So, you go to downloads and select the latest version of Python. Here in your downloads folder, you should see this package. Simply double-click it. You're going to see this Python installer. If you're on Windows, you will see this checkbox over here, add Python to path. Make sure to check it. It's really important. Otherwise, you're not going 
+
+
+[27:08 → 28:24]
+
+and we get 26. So you learned about the arithmetic operators in Python. Now in Python, we have another set of operators called comparison operators. We use these operators to compare values. Let me show you. So I'm going to declare a variable called X and set it to an expression like this. 3 is greater than 2. So what we have here, this piece of code, this expression is called a boolean expression because it produces a boolean value. So in this case, because 3 is greater than 2, the result of this expression is the boolean true. So if we print X, we get true on the terminal. So here is the greater than operator. We also have greater than or equal to. We have less than. We have less than or equal to. Here's the equality operator which is indicated by two equal signs. Do not confuse this with the assignment operator. So here we're comparing three and two for equality. So if we run our program, we see false because three does not equal to two. So here's the equality operator. We also have 
+
+
+
+FINAL ANSWER:
+I could not find its reference in this video.
+
+================================================================================

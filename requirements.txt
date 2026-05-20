@@ -1,0 +1,21 @@
+# Youtube API
+youtube-transcript-api
+deep-translator
+
+#langchain
+langchain
+langchain_core
+langchain-community
+langchain_text_splitter
+
+langchain_huggingface
+
+langchain_groq
+
+rank-bm25
+
+
+python-dotenv
+
+
+sentence-transformers

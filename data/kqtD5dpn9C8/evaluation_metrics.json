@@ -1,0 +1,42 @@
+[
+    {
+        "qyuery": "What can Python be used for?",
+        "precision": 1.0,
+        "recall": 0.5,
+        "hit_rate": 1,
+        "mrr": 1.0,
+        "f1": 0.6666666666666666
+    },
+    {
+        "qyuery": "Which websites use Python and Django?",
+        "precision": 1.0,
+        "recall": 1.0,
+        "hit_rate": 1,
+        "mrr": 1.0,
+        "f1": 1.0
+    },
+    {
+        "qyuery": "Why should we check add Python to path during installation?",
+        "precision": 1.0,
+        "recall": 1.0,
+        "hit_rate": 1,
+        "mrr": 1.0,
+        "f1": 1.0
+    },
+    {
+        "qyuery": "How do you create a new Python file in PyCharm?",
+        "precision": 1.0,
+        "recall": 0.5,
+        "hit_rate": 1,
+        "mrr": 1.0,
+        "f1": 0.6666666666666666
+    },
+    {
+        "qyuery": "What is a string in Python?",
+        "precision": 1.0,
+        "recall": 1.0,
+        "hit_rate": 1,
+        "mrr": 1.0,
+        "f1": 1.0
+    }
+]
