@@ -6,3 +6,6 @@ __pycache__/
 *.pyd
 .Python
 .git
+
+node_modules/
+dist/
