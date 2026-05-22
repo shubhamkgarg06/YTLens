@@ -1,16 +1,17 @@
-from fastapi import FastAPI
+from fastapi import APIRouter
 from pydantic import BaseModel
 from yt_dlp import YoutubeDL
 
-app = FastAPI()
 
+router = APIRouter()
 
 class VideoRequest(BaseModel):
     url: str
 
 
-@app.post("/video-info")
+@router.post("/video-info")
 async def get_video_info(data: VideoRequest):
+    
 
     ydl_opts = {
         "quiet": True

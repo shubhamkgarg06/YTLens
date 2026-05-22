@@ -1,40 +1,175 @@
 import { MessageSquareMore } from 'lucide-react';
+import { useState, useEffect , useRef } from 'react';
 
-function VideoChapters() {
+function VideoChapters({ videoData, player }) {
+
+    const chapters = videoData?.chapters || [];
+
+    const [activeChapter, setActiveChapter] = useState(0);
+
+    const chapterRefs = useRef([]);
+
+    // TRACK CURRENT VIDEO TIME
+    useEffect(() => {
+
+        if (!player || chapters.length === 0) return;
+
+        const interval = setInterval(() => {
+
+            const currentTime = player.getCurrentTime();
+
+            for (let i = 0; i < chapters.length; i++) {
+
+                const currentChapter = chapters[i];
+
+                const nextChapter = chapters[i + 1];
+
+                if (
+
+                    currentTime >= currentChapter.start_time &&
+
+                    (
+                        !nextChapter ||
+
+                        currentTime < nextChapter.start_time
+                    )
+
+                ) {
+
+                    setActiveChapter(i);
+
+                    break;
+                }
+            }
+
+        }, 1000);
+
+        return () => clearInterval(interval);
+
+    }, [player, chapters]);
+
+    // AUTO SCROLL TO ACTIVE CHAPTER
+    useEffect(() => {
+
+        const activeElement =
+            chapterRefs.current[activeChapter];
+
+        if (activeElement) {
+
+            activeElement.scrollIntoView({
+
+                behavior: "smooth",
+
+                block: "center",
+            });
+        }
+
+    }, [activeChapter]);
+
+
+
+    function formatDuration(seconds) {
+
+        const hrs = Math.floor(seconds / 3600);
+
+        const mins = Math.floor((seconds % 3600) / 60);
+
+        const secs = Math.floor(seconds % 60);
+
+        const paddedMins = String(mins).padStart(2, "0");
+
+        const paddedSecs = String(secs).padStart(2, "0");
+
+        if (hrs > 0) {
+
+            const paddedHrs = String(hrs).padStart(2, "0");
+
+            return `${paddedHrs}:${paddedMins}:${paddedSecs}`;
+        }
+
+        return `${paddedMins}:${paddedSecs}`;
+    }
+
+
+
     return (
-        <div className="h-full bg-gray-800 rounded-lg p-2">
-            
+
+        <div className="h-full  bg-gray-800 rounded-lg p-1 overflow-y-auto ">
+
             <div className="flex items-center mb-2 text-sm border-b border-gray-400 p-1 gap-1">
-                <MessageSquareMore className="inline-block mr-1 text-orange-400" />
-                <h1 className="font-bold text-white">Chapters / Key Moments</h1>
-            </div>
 
-            {/* CONTENT */}
-            <div className="space-y-2 text-sm p-2 flex gap-2">
+                <MessageSquareMore
+                    className="inline-block mr-1 text-orange-400"
+                />
 
-                <div className="flex flex-col gap-1">
-
-                    <span className="text-gray-400 font-medium">
-                        Title:
-                    </span>
-
-                    
-
-
-                </div>
-
-                <div className="flex flex-col gap-1">
-
-                    <span className="text-white ml-2 text-semibold">
-                        Tech Insights
-                    </span>
-
-                    
-
-                </div>
-
+                <h1 className="font-bold text-white">
+                    Chapters / Key Moments
+                </h1>
 
             </div>
+
+
+
+            <div className="text-sm p-1">
+
+                {
+                    chapters.map((chapter, i) => (
+
+                        <div
+
+                            // STORE DOM REFERENCE
+                            ref={(el) =>
+                                chapterRefs.current[i] = el
+                            }
+
+                            key={chapter.start_time}
+
+                            onClick={() => {
+
+                                player?.seekTo(chapter.start_time);
+
+                                player?.playVideo();
+                            }}
+
+                            className={`
+                                flex items-center
+                                gap-3
+                                p-1
+                                rounded-lg
+                                cursor-pointer
+                                transition-all duration-200
+
+                                ${
+                                    activeChapter === i
+
+                                        ? " text-white font-bold"
+
+                                        : "hover:bg-white/5 text-gray-400"
+                                }
+
+                            `}
+                        >
+
+                            <span>
+
+                                {
+                                    `${formatDuration(chapter.start_time)} - ${formatDuration(chapter.end_time)}`
+                                }
+
+                            </span>
+
+                            <span className="flex-1">
+
+                                {chapter.title}
+
+                            </span>
+
+                        </div>
+                    ))
+                }
+
+            </div>
+
         </div>
     );
 }

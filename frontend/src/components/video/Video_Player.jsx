@@ -1,13 +1,67 @@
-function VideoPlayer({ videoUrl }) {
-    return (
-        <div className="h-full bg-gray-800 rounded-lg p-1">
+import YouTube from "react-youtube";
 
-            <iframe
-                className=" h-full w-full rounded-sm"
-                src={videoUrl}
-                title="YouTube video player"
-                allowFullScreen
-            />
+function VideoPlayer({ videoUrl , setPlayer }) {
+
+    function extractVideoId(url) {
+
+        if (!url) return null;
+
+        if (/^[a-zA-Z0-9_-]{11}$/.test(url)) {
+            return url;
+        }
+
+        const regExp =
+            /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+
+        const match = url.match(regExp);
+
+        return match ? match[2] : null;
+    }
+
+    const onReady = (event) => {
+
+        setPlayer(event.target);
+
+    };
+
+    const videoId = extractVideoId(videoUrl);
+
+    console.log("VIDEO URL:", videoUrl);
+    console.log("VIDEO ID:", videoId);
+
+    return (
+
+        <div className="h-full rounded-lg overflow-hidden bg-gray-800">
+
+            {
+                videoId ? (
+
+                    <YouTube
+
+                        videoId={videoId}
+
+                        iframeClassName="w-full h-full rounded-lg"
+
+                        className= "h-full p-1 rounded-lg"
+
+                        onReady={onReady}
+
+                        opts={{
+                            width: "100%",
+                            height: "100%",
+                            playerVars: {
+                                autoplay: 0,
+                                rel: 0,
+                            },
+                        }}
+                    />
+                ) :
+                (
+                    <div className="h-full w-full flex items-center justify-center text-gray-500">
+                        No video loaded
+                    </div>
+                )
+            }
 
         </div>
     );

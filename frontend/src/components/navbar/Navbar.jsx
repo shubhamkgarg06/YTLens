@@ -5,7 +5,7 @@ import Developer_mode_switch from "./Developer_mode"
 import Theme_toggle from "./Day-Night"
 import VideoLinkBox from "./VideoLinkBox";
 
-function Navbar({darkMode, setDarkMode , videoUrl, setVideoUrl}) { 
+function Navbar({darkMode, setDarkMode , videoUrl, setVideoUrl, setVideoData}) { 
   
 
     return (
@@ -16,7 +16,7 @@ function Navbar({darkMode, setDarkMode , videoUrl, setVideoUrl}) {
 
 
           <div className="flex-1 flex justify-center px-6">
-            <VideoLinkBox darkMode = {darkMode} videoUrl = {videoUrl} setVideoUrl = {setVideoUrl}/>
+            <VideoLinkBox darkMode = {darkMode} videoUrl = {videoUrl} setVideoUrl = {setVideoUrl} setVideoData = {setVideoData}/>
           </div>
 
           {/* Developer Mode */}

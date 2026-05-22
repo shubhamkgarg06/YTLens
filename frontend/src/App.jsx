@@ -7,6 +7,7 @@ function App() {
 
   const [darkMode, setDarkMode] = useState(true);
   const [videoUrl, setVideoUrl] = useState("");
+  const [videoData, setVideoData] = useState("");
 
   return (
 
@@ -20,13 +21,13 @@ function App() {
       `}
     >
 
-      <Navbar darkMode={darkMode}  setDarkMode={setDarkMode} videoUrl={videoUrl} setVideoUrl={setVideoUrl}
+      <Navbar darkMode={darkMode}  setDarkMode={setDarkMode} videoUrl={videoUrl} setVideoUrl={setVideoUrl} setVideoData={setVideoData}
       />
 
       <div className="flex-1 flex p-4 gap-4 overflow-hidden">
             
           <div className=" w-3/8">
-              <VideoBlock videoUrl={videoUrl} />
+              <VideoBlock videoUrl={videoUrl} videoData={videoData} />
           </div>
             
           <div className=" w-5/8">

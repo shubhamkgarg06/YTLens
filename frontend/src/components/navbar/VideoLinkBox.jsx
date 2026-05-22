@@ -1,10 +1,11 @@
 import { MessageSquareCheck } from "lucide-react";
 import { useState } from "react";
 
-function VideoLinkBox({darkMode , videoUrl, setVideoUrl}) {
+function VideoLinkBox({darkMode , videoUrl, setVideoUrl, setVideoData}) {
 
     const [loading, setLoading] = useState(false);
     const [inputUrl, setInputUrl] = useState(videoUrl);
+    
 
     const isValidYoutubeUrl = (url) => {
 
@@ -15,7 +16,8 @@ function VideoLinkBox({darkMode , videoUrl, setVideoUrl}) {
     };
 
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
+
         console.log(inputUrl);
 
         if (!isValidYoutubeUrl(inputUrl)) {
@@ -23,12 +25,37 @@ function VideoLinkBox({darkMode , videoUrl, setVideoUrl}) {
             return;
         }
 
-        setVideoUrl(inputUrl);
-        setLoading(true);
-        return;
+        try {
 
-        // later:
-        // fetch video data here
+            setLoading(true);
+
+            const res = await fetch("http://127.0.0.1:8000/video-info", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    url: inputUrl,
+                }),
+            });
+
+            const data = await res.json();
+
+            
+            setVideoData(data);
+            setVideoUrl(inputUrl);
+            console.log(data);
+
+        } catch (error) {
+
+            console.error(error);
+            alert("Backend connection failed");
+            setLoading(false);
+
+        } finally {
+            
+            setLoading(true);
+        }
     };
 
     return (
