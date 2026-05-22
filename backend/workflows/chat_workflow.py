@@ -1,22 +1,22 @@
+from dotenv import load_dotenv
+load_dotenv()
+
 from langchain_groq import ChatGroq
 from langchain_core.output_parsers import StrOutputParser
 
-from prompts.answer_prompt import main_workflow_prompt
-from prompts.reformulation_prompt import query_reformulation_prompt
-from prompts.timestamp_prompt import timestamp_extraction_prompt
+from backend.prompts.answer_prompt import main_workflow_prompt
+from backend.prompts.reformulation_prompt import query_reformulation_prompt
+from backend.prompts.timestamp_prompt import timestamp_extraction_prompt
 
 
-from utils.regex_timestamp_utils import regex_timestamp_parser
-from utils.context_build_utils import build_context_from_docs , get_relevant_docs_by_timestamp
-from utils.answer_utils import generate_answer
-# from utils.respective_cntext_retrival import retrieval_pipeline , create_retrievers
-# from utils.cntext_retrival.hybrid import retrieval_pipeline , create_retrievers
-# from utils.cntext_retrival.scores import create_bm25_index, retrieval_pipeline
-from utils.cntext_retrival.reranking import create_bm25_index, retrieval_pipeline , load_reranker
+from backend.utils.regex_timestamp_utils import regex_timestamp_parser
+from backend.utils.context_build_utils import build_context_from_docs , get_relevant_docs_by_timestamp
+from backend.utils.answer_utils import generate_answer
+from backend.utils.cntext_retrival.reranking import create_bm25_index, retrieval_pipeline , load_reranker
 
-from logs.write_log import write_log
+from data.logs.write_log import write_log
 
-from Evaluation_metric.store_results import export_results_to_json
+from backend.Evaluation_metric.store_results import export_results_to_json
 
 
 def main_chat_workflow(vector_store, documents , video_id):

@@ -1,16 +1,16 @@
-from vector_db_store.store_vector import store_transcript
-from Transcriber.video_transcribe import get_transcript
-from chunking.documents_chunk import create_documents
+from backend.vector_db_store.store_vector import store_transcript
+from backend.Video_operations.video_transcribe import get_transcript
+from backend.chunking.documents_chunk import create_documents
 
 import os
 
-from Embedding.hg_face_emb import embeddings
+from backend.Embedding.hg_face_emb import embeddings
 from langchain_chroma import Chroma
 
 
 def ingest_video(video_id):
 
-    db_path = f"./chroma_db/{video_id}"
+    db_path = f"data/chroma_db/{video_id}"
 
     # ---------------------------------------------------
     # Always Create Documents

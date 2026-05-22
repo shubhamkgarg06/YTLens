@@ -1,5 +1,5 @@
 from langchain_chroma import Chroma
-from Embedding.hg_face_emb import embeddings
+from backend.Embedding.hg_face_emb import embeddings
 
 def store_transcript(documents, video_id):
 
@@ -11,7 +11,7 @@ def store_transcript(documents, video_id):
     vector_store = Chroma.from_documents(
         documents=documents,
         embedding=embeddings, 
-        persist_directory=f"./chroma_db/{video_id}"
+        persist_directory=f"data/chroma_db/{video_id}"
     )
 
     return vector_store

@@ -1,5 +1,5 @@
 from langchain_huggingface import HuggingFaceEmbeddings
-from chunking.transcript_chunking import split_transcript
+from backend.chunking.transcript_chunking import split_transcript
 
 embeddings = HuggingFaceEmbeddings(
     model_name="BAAI/bge-small-en",

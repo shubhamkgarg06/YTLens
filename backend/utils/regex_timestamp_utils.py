@@ -1,4 +1,4 @@
-from utils.timestamp_utils import timestamp_to_seconds
+from backend.utils.timestamp_utils import timestamp_to_seconds
 import re
 
 # ---------------------------------------------------

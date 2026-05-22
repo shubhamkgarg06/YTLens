@@ -1,11 +1,11 @@
 import json
 import os
 
-from calculating.prec import calculate_precision
-from calculating.recall import calculate_recall
-from calculating.hit_rate import calculate_hit_rate
-from calculating.mrr import calculate_mean_reciprocal_rank
-from calculating.f1 import calculate_f1_score
+from backend.Evaluation_metric.calculating.prec import calculate_precision
+from backend.Evaluation_metric.calculating.recall import calculate_recall
+from backend.Evaluation_metric.calculating.hit_rate import calculate_hit_rate
+from backend.Evaluation_metric.calculating.mrr import calculate_mean_reciprocal_rank
+from backend.Evaluation_metric.calculating.f1 import calculate_f1_score
 
 
 def store_metrics(query , precision, recall, hit_rate, mrr, f1, video_id="kqtD5dpn9C8"):
