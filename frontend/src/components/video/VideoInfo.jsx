@@ -1,6 +1,6 @@
 import { Book } from 'lucide-react'
 
-function VideoInfo({videoData}) {
+function VideoInfo({videoData , darkMode}) {
 
     function formatDuration(seconds) {
 
@@ -33,10 +33,10 @@ function VideoInfo({videoData}) {
     }
 
     return (
-        <div className="h-full bg-gray-800 rounded-lg p-2">
+        <div className={`h-full ${darkMode ? 'bg-gray-800' : 'bg-gray-300'} rounded-lg p-2 overflow-hidden`}>
             <div className="flex items-center mb-2 text-sm border-b border-gray-400 p-1 gap-1">
                 <Book className="inline-block mr-1 text-orange-400" />
-                <h1 className="font-bold text-white">Video Info</h1>
+                <h1 className={`font-bold ${darkMode ? 'text-white' : 'text-gray-800'}`}>Video Info</h1>
             </div>
 
             {/* CONTENT */}
@@ -44,19 +44,19 @@ function VideoInfo({videoData}) {
 
                 <div className="flex flex-col gap-2">
 
-                    <span className="text-gray-400 font-medium">
+                    <span className={`text-gray-400 font-medium ${darkMode ? 'text-gray-400' : 'text-gray-800'}`}>
                         Title:
                     </span>
 
-                    <span className="text-gray-400 font-medium">
+                    <span className={`text-gray-400 font-medium ${darkMode ? 'text-gray-400' : 'text-gray-800'}`}>
                         Channel:
                     </span>
 
-                    <span className="text-gray-400 font-medium">
+                    <span className={`text-gray-400 font-medium ${darkMode ? 'text-gray-400' : 'text-gray-800'}`}>
                         Duration:
                     </span>
 
-                    <span className="text-gray-400 font-medium">
+                    <span className={`text-gray-400 font-medium ${darkMode ? 'text-gray-400' : 'text-gray-800'}`}>
                         Views:
                     </span>
 
@@ -65,7 +65,7 @@ function VideoInfo({videoData}) {
 
                 <div className="flex flex-col gap-2">
 
-                    <span className="text-white ml-2 text-semibold">
+                    <span className={`text-white ml-2 text-semibold ${darkMode ? 'text-white' : 'text-gray-800'}`}>
                         {
                             videoData?.title ? (
                                 <span>{videoData.title}</span>
@@ -75,15 +75,15 @@ function VideoInfo({videoData}) {
 }
                     </span>
 
-                    <span className="text-white ml-2 text-semibold">
+                    <span className={`text-white ml-2 text-semibold ${darkMode ? 'text-white' : 'text-gray-800'}`}>
                         {videoData && videoData.uploader ? videoData.uploader : " "}
                     </span>
 
-                    <span className="text-white ml-2 text-semibold">
+                    <span className={`text-white ml-2 text-semibold ${darkMode ? 'text-white' : 'text-gray-800'}`}>
                         {videoData && videoData.duration ? formatDuration(videoData.duration) : " "}
                     </span>
 
-                    <span className="text-white ml-2 text-semibold  ">
+                    <span className={`text-white ml-2 text-semibold ${darkMode ? 'text-white' : 'text-gray-800'}`}>
                         {videoData && videoData.views ? formatViews(videoData.views) : " "}
                     </span>
 

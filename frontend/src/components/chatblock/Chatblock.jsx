@@ -1,16 +1,21 @@
 import InputBox from "./Input_box";
 
-function Chatblock() {
+function Chatblock({ darkMode }) {
   return (
-    <div className="h-full flex flex-col w-full max-w-6xl p-4 bg-[rgb(18,22,30)] shadow-2xl rounded-2xl">
+    <div className={`relative h-full flex flex-col w-full max-w-6xl p-4 rounded-2xl overflow-hidden ${darkMode ? 'bg-[rgb(18,22,30)]' : 'bg-gray-300'} `}>
 
-      <div className="flex-1">
+      <div className="flex-1 overflow-y-auto">
 
       </div>
       
 
-      <div className="mt-auto">
-        <InputBox />
+      <div className="absolute
+        bottom-6
+        left-1/2
+        -translate-x-1/2
+        w-[92%]
+        z-50">
+        <InputBox darkMode={darkMode} />
       </div>
     </div>
     );  

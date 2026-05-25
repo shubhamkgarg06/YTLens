@@ -1,6 +1,6 @@
 import YouTube from "react-youtube";
 
-function VideoPlayer({ videoUrl , setPlayer }) {
+function VideoPlayer({ videoUrl , setPlayer , darkMode }) {
 
     function extractVideoId(url) {
 
@@ -31,10 +31,10 @@ function VideoPlayer({ videoUrl , setPlayer }) {
 
     return (
 
-        <div className="h-full rounded-lg overflow-hidden bg-gray-800">
+        <div className={`h-full rounded-lg overflow-hidden ${darkMode ? 'bg-gray-800' : 'bg-gray-300'}`}>
 
             {
-                videoId ? (
+                videoId ? ( 
 
                     <YouTube
 
@@ -57,7 +57,7 @@ function VideoPlayer({ videoUrl , setPlayer }) {
                     />
                 ) :
                 (
-                    <div className="h-full w-full flex items-center justify-center text-gray-500">
+                    <div className={`h-full w-full flex items-center justify-center ${darkMode ? 'text-gray-500' : 'text-gray-800'}`}>
                         No video loaded
                     </div>
                 )

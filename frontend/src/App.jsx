@@ -27,11 +27,11 @@ function App() {
       <div className="flex-1 flex p-4 gap-4 overflow-hidden">
             
           <div className=" w-3/8">
-              <VideoBlock videoUrl={videoUrl} videoData={videoData} />
+              <VideoBlock videoUrl={videoUrl} videoData={videoData} darkMode={darkMode}/>
           </div>
             
           <div className=" w-5/8">
-              <Chatblock />
+              <Chatblock darkMode={darkMode}/>
           </div>
             
       </div>

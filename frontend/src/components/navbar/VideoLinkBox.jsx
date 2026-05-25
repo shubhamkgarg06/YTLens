@@ -67,10 +67,10 @@ function VideoLinkBox({darkMode , videoUrl, setVideoUrl, setVideoData}) {
                 px-3 py-1
                 shadow-lg
                 transition-all duration-300
-                focus-within:border-red-500
-                focus-within:shadow-red-500/20
-                focus-within:shadow-xl
-                ${darkMode ? " bg-[#111827]/90 border-white/20" : "text-black  bg-gray-200 border-black/20"}
+                
+                ${darkMode ?
+                     " bg-[#111827]/90 border-white/20 focus-within:border-red-500 focus-within:shadow-red-500/20 focus-within:shadow-xl" 
+                : "text-black  bg-gray-200 border-black/20 focus-within:border-red-700 focus-within:shadow-red-700/20 focus-within:shadow-xl"}
 
             `}>
 
@@ -92,6 +92,7 @@ function VideoLinkBox({darkMode , videoUrl, setVideoUrl, setVideoData}) {
                 />
 
                 <button
+                    type="submit"
                     className="
                         bg-red-600
                         hover:bg-white

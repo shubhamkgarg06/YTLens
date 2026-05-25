@@ -1,7 +1,7 @@
 import { MessageSquareMore } from 'lucide-react';
 import { useState, useEffect , useRef } from 'react';
 
-function VideoChapters({ videoData, player }) {
+function VideoChapters({ videoData, player , darkMode }) {
 
     const chapters = videoData?.chapters || [];
 
@@ -94,7 +94,7 @@ function VideoChapters({ videoData, player }) {
 
     return (
 
-        <div className="h-full  bg-gray-800 rounded-lg p-1 overflow-y-auto ">
+        <div className={`h-full flex flex-col  ${darkMode ? 'bg-gray-800' : 'bg-gray-300'} rounded-lg p-1`}>
 
             <div className="flex items-center mb-2 text-sm border-b border-gray-400 p-1 gap-1">
 
@@ -102,7 +102,7 @@ function VideoChapters({ videoData, player }) {
                     className="inline-block mr-1 text-orange-400"
                 />
 
-                <h1 className="font-bold text-white">
+                <h1 className={`font-bold ${darkMode ? 'text-white' : 'text-gray-800'}`}>
                     Chapters / Key Moments
                 </h1>
 
@@ -110,7 +110,7 @@ function VideoChapters({ videoData, player }) {
 
 
 
-            <div className="text-sm p-1">
+            <div className="flex-1 text-sm p-1 overflow-y-auto">
 
                 {
                     chapters.map((chapter, i) => (
@@ -142,9 +142,9 @@ function VideoChapters({ videoData, player }) {
                                 ${
                                     activeChapter === i
 
-                                        ? " text-white font-bold"
+                                        ? `text-white font-bold ${darkMode ? 'text-white' : 'text-gray-800'}`
 
-                                        : "hover:bg-white/5 text-gray-400"
+                                        : `hover:bg-white/5 text-gray-400 ${darkMode ? 'text-gray-400' : 'text-gray-800'}`
                                 }
 
                             `}
