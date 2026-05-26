@@ -3,7 +3,7 @@ import { useState } from "react";
 
 function VideoLinkBox({darkMode , videoUrl, setVideoUrl, setVideoData}) {
 
-    const [loading, setLoading] = useState(false);
+    const [loadingDone, setLoadingDone] = useState(false);
     const [inputUrl, setInputUrl] = useState(videoUrl);
     
 
@@ -27,7 +27,7 @@ function VideoLinkBox({darkMode , videoUrl, setVideoUrl, setVideoData}) {
 
         try {
 
-            setLoading(true);
+            setLoadingDone(true);
 
             const res = await fetch("http://127.0.0.1:8000/video-info", {
                 method: "POST",
@@ -50,17 +50,22 @@ function VideoLinkBox({darkMode , videoUrl, setVideoUrl, setVideoData}) {
 
             console.error(error);
             alert("Backend connection failed");
-            setLoading(false);
+            setLoadingDone(false);
 
         } finally {
             
-            setLoading(true);
+            setLoadingDone(true);
         }
     };
 
     return (
         <div className="w-full max-w-xl">
-            <div className={`
+            <form 
+             onSubmit={(e) => {
+                e.preventDefault();
+                handleSubmit();
+             }}
+             className={`
                 flex items-center
                 border 
                 rounded-2xl
@@ -74,43 +79,47 @@ function VideoLinkBox({darkMode , videoUrl, setVideoUrl, setVideoData}) {
 
             `}>
 
-                <input
-                    type="text"
-                    placeholder="Paste YouTube video URL..."
-                    value={inputUrl}
-                    onChange={(e) => setInputUrl(e.target.value)}
-                    className={`
-                        flex-1
-                        bg-transparent
-                        outline-none
-                        text-sm
-                        px-2
-                        ${darkMode ? "text-white placeholder-gray-500" : "text-black placeholder-gray-800"}
-                        disabled:cursor-not-allowed
-                    `}
-                    disabled={loading}
-                />
+                
 
-                <button
-                    type="submit"
-                    className="
-                        bg-red-600
-                        hover:bg-white
-                        active:scale-95
-                        text-white
-                        hover:text-red-600
-                        p-2.5
-                        rounded-xl
-                        transition-all duration-200
-                        shadow-md
-                        disabled:cursor-not-allowed
-                    "
-                    onClick={handleSubmit}
-                    disabled={loading}
-                >
-                    <MessageSquareCheck size={16} />
-                </button>
-            </div>
+
+                    <input
+                        type="text"
+                        placeholder="Paste YouTube video URL..."
+                        value={inputUrl}
+                        onChange={(e) => setInputUrl(e.target.value)}
+                        className={`
+                            flex-1
+                            bg-transparent
+                            outline-none
+                            text-sm
+                            px-2
+                            ${darkMode ? "text-white placeholder-gray-500" : "text-black placeholder-gray-800"}
+                            disabled:cursor-not-allowed
+                        `}
+                        disabled={loadingDone}
+                    />
+
+                    <button
+                        type="submit"
+                        className="
+                            bg-red-600
+                            hover:bg-white
+                            active:scale-95
+                            text-white
+                            hover:text-red-600
+                            p-2.5
+                            rounded-xl
+                            transition-all duration-200
+                            shadow-md
+                            disabled:cursor-not-allowed
+                        "
+                        disabled={loadingDone}
+                    >
+
+                        <MessageSquareCheck size={16} />
+                    </button>
+                
+            </form>
         </div>
     );
 }

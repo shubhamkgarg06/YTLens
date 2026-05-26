@@ -1,9 +1,21 @@
+from app.core.workflows.chat_workflow import main_chat_workflow
+from app.core.workflows.ingest import ingest_video
+
+
+
+def main(video_id):
+
+    vector_store, documents = ingest_video(video_id)
+
+    main_chat_workflow(vector_store, documents , video_id)
+
+
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from backend.Video_operations.video_fetch_details import router as video_router
+from app.services.Video_operations.video_fetch_details import router as video_router
 
 
-from backend.main import main
 
 app = FastAPI()
 

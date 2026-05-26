@@ -13,40 +13,73 @@ function VideoChapters({ videoData, player , darkMode }) {
     useEffect(() => {
 
         if (!player || chapters.length === 0) return;
-
+        
         const interval = setInterval(() => {
-
+        
             const currentTime = player.getCurrentTime();
-
-            for (let i = 0; i < chapters.length; i++) {
-
-                const currentChapter = chapters[i];
-
-                const nextChapter = chapters[i + 1];
-
-                if (
-
-                    currentTime >= currentChapter.start_time &&
-
-                    (
-                        !nextChapter ||
-
-                        currentTime < nextChapter.start_time
-                    )
-
-                ) {
-
-                    setActiveChapter(i);
-
-                    break;
+        
+            // CURRENT ACTIVE CHAPTER
+            const currentChapter = chapters[activeChapter];
+        
+            // STILL INSIDE CURRENT CHAPTER
+            if (
+                currentChapter &&
+                currentTime >= currentChapter.start_time &&
+                currentTime < currentChapter.end_time
+            ) {
+                return;
+            }
+        
+            // VIDEO MOVED FORWARD
+            if (currentChapter && currentTime >= currentChapter.end_time) {
+            
+                for (let i = activeChapter + 1; i < chapters.length; i++) {
+                
+                    const chapter = chapters[i];
+                
+                    if (
+                        currentTime >= chapter.start_time &&
+                        currentTime < chapter.end_time
+                    ) {
+                    
+                        setActiveChapter(prev =>
+                            prev !== i ? i : prev
+                        );
+                    
+                        break;
+                    }
                 }
             }
-
+        
+            // VIDEO MOVED BACKWARD
+            else if (
+                currentChapter &&
+                currentTime < currentChapter.start_time
+            ) {
+            
+                for (let i = activeChapter - 1; i >= 0; i--) {
+                
+                    const chapter = chapters[i];
+                
+                    if (
+                        currentTime >= chapter.start_time &&
+                        currentTime < chapter.end_time
+                    ) {
+                    
+                        setActiveChapter(prev =>
+                            prev !== i ? i : prev
+                        );
+                    
+                        break;
+                    }
+                }
+            }
+        
         }, 1000);
-
+    
         return () => clearInterval(interval);
-
-    }, [player, chapters]);
+    
+    }, [player, chapters, activeChapter]);
 
     // AUTO SCROLL TO ACTIVE CHAPTER
     useEffect(() => {

@@ -1,5 +1,5 @@
 from langchain_chroma import Chroma
-from backend.Embedding.hg_face_emb import embeddings
+from app.services.Embedding.hg_face_emb import embeddings
 
 def store_transcript(documents, video_id):
 

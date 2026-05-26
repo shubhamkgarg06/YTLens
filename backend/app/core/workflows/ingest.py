@@ -1,10 +1,10 @@
-from backend.vector_db_store.store_vector import store_transcript
-from backend.Video_operations.video_transcribe import get_transcript
-from backend.chunking.documents_chunk import create_documents
+from app.services.vector_db_store.store_vector import store_transcript
+from app.services.Video_operations.video_transcribe import get_transcript
+from app.services.chunking.documents_chunk import create_documents
 
 import os
 
-from backend.Embedding.hg_face_emb import embeddings
+from app.services.Embedding.hg_face_emb import embeddings
 from langchain_chroma import Chroma
 
 
