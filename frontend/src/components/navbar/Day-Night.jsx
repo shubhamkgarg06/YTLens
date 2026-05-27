@@ -1,29 +1,63 @@
-import { useState } from "react";
+import useTheme from "../../context/ThemeContext";
 
-function ThemeToggle({ darkMode, setDarkMode }) {
-  
+function ThemeToggle() {
+
+  const { themeMode, toggleTheme} = useTheme();
+
+  const onChangeTheme = (e) => {
+    toggleTheme();
+  }
+
+
+
   return (
+
     <div
-      className={`flex items-center justify-center transition-colors duration-500 ${
-        darkMode ? "bg-transparent text-white border-white/20" : "bg-transparent text-black border-black/20"
-      }`}
+      className="
+        flex items-center justify-center
+        transition-colors duration-500
+
+        bg-transparent
+
+        text-black
+        dark:text-white
+      "
     >
+
       <button
-        onClick={() => setDarkMode(!darkMode)}
-        className={`
-          px-2 py-1.5 rounded-full
+
+        onClick={onChangeTheme}
+
+        className="
+          px-2 py-1.5
+          rounded-full
+
           transition-all duration-300
-          border backdrop-blur-md
+
+          border
+          backdrop-blur-md
+
           active:scale-95
-          ${
-            darkMode
-              ? "bg-transparent text-white border-white/20"
-              : "bg-transparent text-black border-black/20"
-          }
-        `}
+
+          bg-transparent
+
+          text-black
+          border-black/20
+
+          dark:text-white
+          dark:border-white/20
+        "
       >
-        {darkMode ? "🌙" : "☀️"}
+
+        {
+          
+            themeMode === "dark"
+            ? "🌙"
+            : "☀️"
+        }
+
       </button>
+
     </div>
   );
 }

@@ -1,16 +1,13 @@
-from fastapi import APIRouter
-from pydantic import BaseModel
+from fastapi import APIRouter, BackgroundTasks
 from yt_dlp import YoutubeDL
-
+from app.api.models.video_url_model import VideoRequest
+from app.core.workflows.ingest import ingest_video_url_workflow
 
 router = APIRouter()
 
-class VideoRequest(BaseModel):
-    url: str
-
 
 @router.post("/video-info")
-async def get_video_info(data: VideoRequest):
+async def get_video_info(data: VideoRequest , background_tasks: BackgroundTasks):
     
 
     ydl_opts = {
@@ -23,7 +20,13 @@ async def get_video_info(data: VideoRequest):
             data.url,
             download=False
         )
-
+        
+    
+    # Schedule the background task to ingest the video URL
+    background_tasks.add_task(ingest_video_url_workflow, data.url)
+    
+    
+    # Return the video information as a response
     return {
         "title": info.get("title"),
         "duration": info.get("duration"),

@@ -1,16 +1,16 @@
 import { useState } from "react";
 import { FolderCode } from 'lucide-react';
 
-function DeveloperModeSwitch({darkMode}) {
+function DeveloperModeSwitch() {
 
   const [enabled, setEnabled] = useState(false);
 
   return (
-    <div className={`flex items-center gap-2 backdrop-blur-md border ${darkMode ? "border-white/20" : "border-black/20"} p-2 w-fit rounded-xl`}>
+    <div className={`flex items-center gap-2 backdrop-blur-md border border-black/20 dark:border-white/20 p-2 w-fit rounded-xl`}>
       
       <FolderCode className={`w-4 h-4 text-[#db0a0a]`} strokeWidth={2} />
       
-      <h2 className={`text-sm font-semibold ${darkMode ? "text-white" : "text-black"}`}>
+      <h2 className={`text-sm font-semibold  text-black dark:text-white`}>
         Developer Mode
       </h2>
 

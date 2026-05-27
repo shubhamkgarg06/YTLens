@@ -7,42 +7,29 @@ import os
 from app.services.Embedding.hg_face_emb import embeddings
 from langchain_chroma import Chroma
 
+from app.utils.get_video_folder import get_video_folder
 
 def ingest_video(video_id):
 
-    db_path = f"data/chroma_db/{video_id}"
+    video_folder = get_video_folder(video_id)
 
-    # ---------------------------------------------------
-    # Always Create Documents
-    # ---------------------------------------------------
-
-    transcript_list = get_transcript(video_id)
-
-    documents = create_documents(
-        transcript_list,
-        video_id
-    )
-
-    # ---------------------------------------------------
-    # Load Existing Vector DB
-    # ---------------------------------------------------
-
-    if os.path.exists(db_path):
+    if os.path.exists(video_folder):
 
         print(
             f"Vector database for video ID {video_id} already exists. Loading existing DB."
         )
-
-        vector_store = Chroma(
-            persist_directory=db_path,
-            embedding_function=embeddings
-        )
-
-        return vector_store, documents
-
+        
     # ---------------------------------------------------
     # Otherwise Create New Vector DB
     # ---------------------------------------------------
+    
+    transcript_list = get_transcript(video_id)
+    
+    if transcript_list is None:
+        print(f"No transcript available for video ID {video_id}. Ingestion aborted.")
+        return None, None
+    
+    documents = create_documents(transcript_list, video_id)
 
     print("Creating new vector database...")
 
@@ -50,5 +37,5 @@ def ingest_video(video_id):
         documents,
         video_id
     )
-
-    return vector_store, documents
+    
+    print("Processing Complete.")

@@ -1,7 +1,10 @@
 import { MessageSquareCheck } from "lucide-react";
 import { useState } from "react";
+import  useVideo  from "../../context/VideoContext";
 
-function VideoLinkBox({darkMode , videoUrl, setVideoUrl, setVideoData}) {
+function VideoLinkBox() {
+
+    const { videoUrl, setVideoUrl, videoData, setVideoData } = useVideo();
 
     const [loadingDone, setLoadingDone] = useState(false);
     const [inputUrl, setInputUrl] = useState(videoUrl);
@@ -18,7 +21,6 @@ function VideoLinkBox({darkMode , videoUrl, setVideoUrl, setVideoData}) {
 
     const handleSubmit = async () => {
 
-        console.log(inputUrl);
 
         if (!isValidYoutubeUrl(inputUrl)) {
             alert("Please enter a valid YouTube URL");
@@ -72,10 +74,8 @@ function VideoLinkBox({darkMode , videoUrl, setVideoUrl, setVideoData}) {
                 px-3 py-1
                 shadow-lg
                 transition-all duration-300
-                
-                ${darkMode ?
-                     " bg-[#111827]/90 border-white/20 focus-within:border-red-500 focus-within:shadow-red-500/20 focus-within:shadow-xl" 
-                : "text-black  bg-gray-200 border-black/20 focus-within:border-red-700 focus-within:shadow-red-700/20 focus-within:shadow-xl"}
+                dark:bg-[#111827]/90 dark:border-white/20 dark:focus-within:border-red-500 dark:focus-within:shadow-red-500/20 dark:focus-within:shadow-xl
+                text-black  bg-gray-200 border-black/20 focus-within:border-red-700 focus-within:shadow-red-700/20 focus-within:shadow-xl
 
             `}>
 
@@ -93,7 +93,8 @@ function VideoLinkBox({darkMode , videoUrl, setVideoUrl, setVideoData}) {
                             outline-none
                             text-sm
                             px-2
-                            ${darkMode ? "text-white placeholder-gray-500" : "text-black placeholder-gray-800"}
+                            dark:text-white dark:placeholder-gray-500 
+                            text-black placeholder-gray-800
                             disabled:cursor-not-allowed
                         `}
                         disabled={loadingDone}

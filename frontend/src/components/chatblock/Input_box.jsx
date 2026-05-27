@@ -1,14 +1,13 @@
 import { SendHorizontal } from 'lucide-react';
 
-function InputBox({ darkMode }) {
+function InputBox() {
     return (
         <div className={`
         gap-2 w-full 
         border-2 
         backdrop-blur-md
-        ${darkMode ? 
-            'border-gray-600 focus-within:border-gray-500 focus-within:shadow-gray-500/20 focus-within:shadow-xl' :
-            'border-gray-400 focus-within:border-gray-800 focus-within:shadow-gray-800/20 focus-within:shadow-xl' } 
+            dark:border-gray-600 dark:focus-within:border-gray-500 dark:focus-within:shadow-gray-500/20 dark:focus-within:shadow-xl
+            border-gray-400 focus-within:border-gray-800 focus-within:shadow-gray-800/20 focus-within:shadow-xl
         rounded-xl p-2 
         shadow-lg
         transition-all duration-300
@@ -20,7 +19,7 @@ function InputBox({ darkMode }) {
                 <input
                     type="text"
                     placeholder="Ask anything about the video..."
-                    className={`w-full ${darkMode ? 'text-white placeholder:text-gray-500' : 'text-gray-800 placeholder:text-black'} outline-none text-sm bg-transparent overflow-auto`}
+                    className={`w-full dark:text-white dark:placeholder:text-gray-500 text-gray-800 placeholder:text-black outline-none text-sm bg-transparent overflow-auto`}
                 />
             </div>
 

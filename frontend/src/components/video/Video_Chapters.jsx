@@ -1,7 +1,11 @@
 import { MessageSquareMore } from 'lucide-react';
 import { useState, useEffect , useRef } from 'react';
+import useVideo from '../../context/VideoContext';
 
-function VideoChapters({ videoData, player , darkMode }) {
+function VideoChapters({player}) {
+    
+    const { videoData} = useVideo();
+
 
     const chapters = videoData?.chapters || [];
 
@@ -13,14 +17,14 @@ function VideoChapters({ videoData, player , darkMode }) {
     useEffect(() => {
 
         if (!player || chapters.length === 0) return;
-        
+
         const interval = setInterval(() => {
-        
+
             const currentTime = player.getCurrentTime();
-        
+
             // CURRENT ACTIVE CHAPTER
             const currentChapter = chapters[activeChapter];
-        
+
             // STILL INSIDE CURRENT CHAPTER
             if (
                 currentChapter &&
@@ -29,56 +33,56 @@ function VideoChapters({ videoData, player , darkMode }) {
             ) {
                 return;
             }
-        
+
             // VIDEO MOVED FORWARD
             if (currentChapter && currentTime >= currentChapter.end_time) {
-            
+
                 for (let i = activeChapter + 1; i < chapters.length; i++) {
-                
+
                     const chapter = chapters[i];
-                
+
                     if (
                         currentTime >= chapter.start_time &&
                         currentTime < chapter.end_time
                     ) {
-                    
+
                         setActiveChapter(prev =>
                             prev !== i ? i : prev
                         );
-                    
+
                         break;
                     }
                 }
             }
-        
+
             // VIDEO MOVED BACKWARD
             else if (
                 currentChapter &&
                 currentTime < currentChapter.start_time
             ) {
-            
+
                 for (let i = activeChapter - 1; i >= 0; i--) {
-                
+
                     const chapter = chapters[i];
-                
+
                     if (
                         currentTime >= chapter.start_time &&
                         currentTime < chapter.end_time
                     ) {
-                    
+
                         setActiveChapter(prev =>
                             prev !== i ? i : prev
                         );
-                    
+
                         break;
                     }
                 }
             }
-        
+
         }, 1000);
-    
+
         return () => clearInterval(interval);
-    
+
     }, [player, chapters, activeChapter]);
 
     // AUTO SCROLL TO ACTIVE CHAPTER
@@ -127,7 +131,7 @@ function VideoChapters({ videoData, player , darkMode }) {
 
     return (
 
-        <div className={`h-full flex flex-col  ${darkMode ? 'bg-gray-800' : 'bg-gray-300'} rounded-lg p-1`}>
+        <div className={`h-full flex flex-col dark:bg-gray-800  bg-gray-300 rounded-lg p-1`}>
 
             <div className="flex items-center mb-2 text-sm border-b border-gray-400 p-1 gap-1">
 
@@ -135,7 +139,7 @@ function VideoChapters({ videoData, player , darkMode }) {
                     className="inline-block mr-1 text-orange-400"
                 />
 
-                <h1 className={`font-bold ${darkMode ? 'text-white' : 'text-gray-800'}`}>
+                <h1 className={`font-bold dark:text-white text-gray-800`}>
                     Chapters / Key Moments
                 </h1>
 
@@ -175,9 +179,9 @@ function VideoChapters({ videoData, player , darkMode }) {
                                 ${
                                     activeChapter === i
 
-                                        ? `text-white font-bold ${darkMode ? 'text-white' : 'text-gray-800'}`
+                                        ? `font-bold dark:text-white text-gray-800`
 
-                                        : `hover:bg-white/5 text-gray-400 ${darkMode ? 'text-gray-400' : 'text-gray-800'}`
+                                        : `hover:bg-white/5 dark:text-gray-400 text-gray-800`
                                 }
 
                             `}

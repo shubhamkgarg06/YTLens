@@ -1,29 +1,21 @@
-from langchain_core.documents import Document
+from langchain.schema import Document
+
 import json
 import os
 
+from app.utils.get_video_folder import get_video_folder
+
+
+
 def export_chunks_to_json(documents, video_id):
 
-    current_dir = os.path.dirname(__file__)
-
-    base_dir = os.path.dirname(current_dir)
-
+    video_folder = get_video_folder(video_id)
+    
     output_path = os.path.join(
-        base_dir,
-        "data",
-        video_id,
+        video_folder,
         "chunks.json"
     )
-
     
-    # Create folder automatically
-    os.makedirs(
-        os.path.dirname(output_path),
-        exist_ok=True
-    )
-
-    
-
     chunk_data = []
 
     for i, doc in enumerate(documents):
@@ -49,6 +41,8 @@ def export_chunks_to_json(documents, video_id):
         )
 
     print(f"Saved {len(chunk_data)} chunks.")
+    
+    
 
 
 def create_documents(transcript_list, video_id):
@@ -119,4 +113,24 @@ def create_documents(transcript_list, video_id):
 
 
     export_chunks_to_json(documents, video_id)
+    
+    video_folder = get_video_folder(video_id)
+    
+    output_path = os.path.join(
+        video_folder,
+        "full_document.json"
+    )
+    
+    with open(output_path,"w",encoding="utf-8") as f:
+
+        json.dump(
+            documents,
+            f,
+            indent=4,
+            ensure_ascii=False
+        )
+    
+
+    print(f"Saved full document text to {output_path}")
+    
     return documents

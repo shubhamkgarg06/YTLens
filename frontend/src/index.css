@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 /* Custom Scrollbar */
 
 ::-webkit-scrollbar {
@@ -18,3 +20,5 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #6b7280;
 }
+
+

@@ -1,6 +1,9 @@
 import { Book } from 'lucide-react'
+import useVideo from "../../context/VideoContext";
 
-function VideoInfo({videoData , darkMode}) {
+function VideoInfo() {
+
+    const { videoData } = useVideo();
 
     function formatDuration(seconds) {
 
@@ -33,68 +36,101 @@ function VideoInfo({videoData , darkMode}) {
     }
 
     return (
-        <div className={`h-full ${darkMode ? 'bg-gray-800' : 'bg-gray-300'} rounded-lg p-2 overflow-hidden`}>
-            <div className="flex items-center mb-2 text-sm border-b border-gray-400 p-1 gap-1">
-                <Book className="inline-block mr-1 text-orange-400" />
-                <h1 className={`font-bold ${darkMode ? 'text-white' : 'text-gray-800'}`}>Video Info</h1>
-            </div>
+        <div className="h-full rounded-xl 
+         bg-gray-300 dark:bg-gray-800 
+         p-2 overflow-hidden shadow-sm">
 
-            {/* CONTENT */}
-            <div className="space-y-2 text-md p-2 flex gap-2">
+         {/* HEADER */}
+         <div className="
+             flex items-center gap-1
+             border-b border-gray-400/40
+             pb-2 mb-2
+         ">
+             <Book className="text-orange-400 w-5 h-5" />
 
-                <div className="flex flex-col gap-2">
+             <h1 className="
+                 text-lg font-semibold
+                 text-gray-900 dark:text-white
+             ">
+                 Video Info
+             </h1>
+         </div>
 
-                    <span className={`text-gray-400 font-medium ${darkMode ? 'text-gray-400' : 'text-gray-800'}`}>
-                        Title:
-                    </span>
+         {/* CONTENT */}
+         <div className="
+             grid grid-cols-[90px_1fr]
+             gap-y-3 gap-x-1
+             text-sm
+         ">
 
-                    <span className={`text-gray-400 font-medium ${darkMode ? 'text-gray-400' : 'text-gray-800'}`}>
-                        Channel:
-                    </span>
+             {/* TITLE */}
+             <span className="
+                 font-medium
+                 text-gray-600 dark:text-gray-400
+             ">
+                 Title
+             </span>
 
-                    <span className={`text-gray-400 font-medium ${darkMode ? 'text-gray-400' : 'text-gray-800'}`}>
-                        Duration:
-                    </span>
+             <span className="
+                 font-semibold
+                 text-gray-900 dark:text-white
+                 break-words leading-relaxed
+             ">
+                 {videoData?.title || "-"}
+             </span>
 
-                    <span className={`text-gray-400 font-medium ${darkMode ? 'text-gray-400' : 'text-gray-800'}`}>
-                        Views:
-                    </span>
+             {/* CHANNEL */}
+             <span className="
+                 font-medium
+                 text-gray-600 dark:text-gray-400
+             ">
+                 Channel
+             </span>
 
+             <span className="
+                 font-semibold
+                 text-gray-900 dark:text-white
+             ">
+                 {videoData?.uploader || "-"}
+             </span>
 
-                </div>
+             {/* DURATION */}
+             <span className="
+                 font-medium
+                 text-gray-600 dark:text-gray-400
+             ">
+                 Duration
+             </span>
 
-                <div className="flex flex-col gap-2">
+             <span className="
+                 font-semibold
+                 text-gray-900 dark:text-white
+             ">
+                 {videoData?.duration
+                     ? formatDuration(videoData.duration)
+                     : "-"}
+             </span>
 
-                    <span className={`text-white ml-2 text-semibold ${darkMode ? 'text-white' : 'text-gray-800'}`}>
-                        {
-                            videoData?.title ? (
-                                <span>{videoData.title}</span>
-                            ) : (
-                                ""
-                            )
-}
-                    </span>
+             {/* VIEWS */}
+             <span className="
+                 font-medium
+                 text-gray-600 dark:text-gray-400
+             ">
+                 Views
+             </span>
 
-                    <span className={`text-white ml-2 text-semibold ${darkMode ? 'text-white' : 'text-gray-800'}`}>
-                        {videoData && videoData.uploader ? videoData.uploader : " "}
-                    </span>
+             <span className="
+                 font-semibold
+                 text-gray-900 dark:text-white
+             ">
+                 {videoData?.views
+                     ? formatViews(videoData.views)
+                     : "-"}
+             </span>
 
-                    <span className={`text-white ml-2 text-semibold ${darkMode ? 'text-white' : 'text-gray-800'}`}>
-                        {videoData && videoData.duration ? formatDuration(videoData.duration) : " "}
-                    </span>
-
-                    <span className={`text-white ml-2 text-semibold ${darkMode ? 'text-white' : 'text-gray-800'}`}>
-                        {videoData && videoData.views ? formatViews(videoData.views) : " "}
-                    </span>
-
-                </div>
-
-
-            </div>
-            
-
-        </div>
-    );
+         </div>
+             </div>
+         );
 }
 
 export default VideoInfo;
