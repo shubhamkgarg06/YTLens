@@ -1,4 +1,4 @@
-from langchain.schema import Document
+from langchain_core.documents import Document
 
 import json
 import os
@@ -112,7 +112,7 @@ def create_documents(transcript_list, video_id):
             i = j
 
 
-    export_chunks_to_json(documents, video_id)
+    # export_chunks_to_json(documents, video_id)
     
     video_folder = get_video_folder(video_id)
     
@@ -124,10 +124,15 @@ def create_documents(transcript_list, video_id):
     with open(output_path,"w",encoding="utf-8") as f:
 
         json.dump(
-            documents,
+            [
+                {
+                    "page_content": doc.page_content,
+                    "metadata": doc.metadata
+                }
+                for doc in documents
+            ],
             f,
-            indent=4,
-            ensure_ascii=False
+            indent=4
         )
     
 

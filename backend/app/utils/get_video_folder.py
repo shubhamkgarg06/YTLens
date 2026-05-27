@@ -1,18 +1,9 @@
+from pathlib import Path
+
 def get_video_folder(video_id):
 
-    current_dir = os.path.dirname(__file__)
+    backend_dir = Path(__file__).resolve().parents[2]
 
-    base_dir = os.path.dirname(current_dir)
-
-    video_folder = os.path.join(
-        base_dir,
-        "data",
-        video_id
-    )
-
-    os.makedirs(
-        video_folder,
-        exist_ok=True
-    )
+    video_folder = backend_dir / "data" / video_id
 
     return video_folder

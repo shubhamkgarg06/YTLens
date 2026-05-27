@@ -1,19 +1,25 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.api.video_fetch_details import router as video_router
+from app.api.routers.video_url_router import router as video_router
 
 
 
 app = FastAPI()
-app.include_router(video_router)
+# Configure CORS to allow requests from the frontend
+
+origins = [
+    "http://localhost:5173"
+]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],  # later replace with frontend URL
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Include the video router
 
 @app.get('/')
 def home():
@@ -23,3 +29,9 @@ def home():
     return {"message": "Welcome to YTLens!"}
 
 
+# Include the video router
+
+app.include_router(
+    video_router,
+    tags=["Video Operations"]
+)
