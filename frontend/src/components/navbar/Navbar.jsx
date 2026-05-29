@@ -1,40 +1,60 @@
-import myLogo_night from "../navbar/assets/logo-bg-remove-3.png"
-import myLogo_day from "../navbar/assets/logo-bg-remove-4.png"
-import Developer_mode_switch from "./Developer_mode"
-import Theme_toggle from "./Day-Night"
+import myLogo_night from "../navbar/assets/logo-bg-remove-3.png";
+import myLogo_day from "../navbar/assets/logo-bg-remove-4.png";
+import Developer_mode_switch from "./Developer_mode";
+import Theme_toggle from "./Day-Night";
 import VideoLinkBox from "./VideoLinkBox";
-import useTheme  from "../../context/ThemeContext";
+import useTheme from "../../context/ThemeContext";
 
-function Navbar() { 
-
+function Navbar({ videoLinkVerified, setVideoLinkVerified }) {
   const { themeMode } = useTheme();
 
-    return (
-        <nav className={`flex items-center justify-between px-4 py-2 backdrop-blur-md shadow-lg`}>
-          {/* Logo Container */}
+  return (
+    <nav
+      className={
+        videoLinkVerified
+          ? "sticky top-0 z-50 flex items-center justify-between px-4 py-2 backdrop-blur-md shadow-lg"
+          : "relative h-screen"
+      }
+    >
+      {/* Logo */}
+      <div
+        className={
+          videoLinkVerified
+            ? ""
+            : "absolute top-4 left-4"
+        }
+      >
+        <img
+          src={themeMode === "dark" ? myLogo_night : myLogo_day}
+          alt="Logo"
+          className="h-8 w-auto object-contain"
+        />
+      </div>
 
-          <img src={themeMode === "dark" ? myLogo_night : myLogo_day} alt="Logo" className="h-8 w-auto object-contain" />
+      {/* Video Input */}
+      <div
+        className={
+          videoLinkVerified
+            ? "flex-1 flex justify-center" 
+            : "absolute inset-0 flex items-center justify-center"
+        }
+      >
+        <VideoLinkBox videoLinkVerified={videoLinkVerified} setVideoLinkVerified={setVideoLinkVerified} />
+      </div>
 
-
-          <div className="flex-1 flex justify-center px-6">
-            <VideoLinkBox />
-          </div>
-
-          {/* Developer Mode */}
-          <div className="flex gap-4 items-center">
-
-
-            <Developer_mode_switch />
-
-            <Theme_toggle />
-            
-
-          </div>
-        </nav>
-
-            
-            
-    )
+      {/* Right Controls */}
+      <div
+        className={
+          videoLinkVerified
+            ? "flex gap-4 items-center px-4 py-2"
+            : "absolute top-4 right-4 flex gap-4 items-center"
+        }
+      >
+        <Developer_mode_switch />
+        <Theme_toggle />
+      </div>
+    </nav>
+  );
 }
 
-export default Navbar
+export default Navbar;

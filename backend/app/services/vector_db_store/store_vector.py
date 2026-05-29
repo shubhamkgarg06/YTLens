@@ -1,9 +1,16 @@
 from langchain_chroma import Chroma
-from app.services.Embedding.hg_face_emb import embeddings
 from app.utils.get_video_folder import get_video_folder
+
+from app.models.Embedding_model import EmbeddingModel
+
+from dotenv import load_dotenv
 
 
 def store_to_vector_db(documents, video_id):
+    
+    load_dotenv()  # Load environment variables from .env file
+    
+    embeddings = EmbeddingModel().get_embeddings()
     
     video_folder = get_video_folder(video_id)
     

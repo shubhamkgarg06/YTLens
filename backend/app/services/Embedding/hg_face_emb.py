@@ -1,9 +1,6 @@
-from langchain_huggingface import HuggingFaceEmbeddings
 from app.services.chunking.transcript_chunking import split_transcript
 
-embeddings = HuggingFaceEmbeddings(
-    model_name="BAAI/bge-small-en",
-)
+
 
 def embed_text(text):
     

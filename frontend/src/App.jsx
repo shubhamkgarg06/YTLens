@@ -8,6 +8,8 @@ import useTheme from './context/ThemeContext';
 
 function App() {
 
+  const [videoLinkVerified , setVideoLinkVerified] = useState(false);
+
   return (
 
     <ThemeProvider>
@@ -24,19 +26,22 @@ function App() {
         `}
       >
 
-            <Navbar/>
+            <Navbar videoLinkVerified={videoLinkVerified} setVideoLinkVerified={setVideoLinkVerified}/>
 
-            <div className="flex-1 flex p-4 gap-4 overflow-hidden">
+            {videoLinkVerified && 
 
-              <div className=" w-3/8">
-                  <VideoBlock/>
+              <div className="flex-1 flex p-4 gap-4 overflow-hidden">
+
+                <div className=" w-3/8">
+                    <VideoBlock/>
+                </div>
+
+                <div className=" w-5/8">
+                    <Chatblock/>
+                </div>
+
               </div>
-
-              <div className=" w-5/8">
-                  <Chatblock/>
-              </div>
-
-            </div>
+            }
 
         </div>
 

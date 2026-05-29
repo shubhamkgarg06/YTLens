@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.api.routers.video_url_router import router as video_router
-
+from app.api.routers.AI_response_router import router as ai_response_router
 
 
 app = FastAPI()
@@ -34,4 +34,8 @@ def home():
 app.include_router(
     video_router,
     tags=["Video Operations"]
+)
+app.include_router(
+    ai_response_router,
+    tags=["AI Response Operations"]
 )

@@ -2,7 +2,7 @@ import { MessageSquareCheck } from "lucide-react";
 import { useState } from "react";
 import  useVideo  from "../../context/VideoContext";
 
-function VideoLinkBox() {
+function VideoLinkBox({ videoLinkVerified, setVideoLinkVerified }) {
 
     const { videoUrl, setVideoUrl, videoData, setVideoData } = useVideo();
 
@@ -47,6 +47,7 @@ function VideoLinkBox() {
             setVideoData(data);
             setVideoUrl(inputUrl);
             console.log(data);
+            setVideoLinkVerified(true);
 
         } catch (error) {
 
@@ -74,9 +75,10 @@ function VideoLinkBox() {
                 px-3 py-1
                 shadow-lg
                 transition-all duration-300
-                dark:bg-[#111827]/90 dark:border-white/20 dark:focus-within:border-red-500 dark:focus-within:shadow-red-500/20 dark:focus-within:shadow-xl
-                text-black  bg-gray-200 border-black/20 focus-within:border-red-700 focus-within:shadow-red-700/20 focus-within:shadow-xl
+                dark:bg-[#111827]/90 dark:border-white/20 dark:focus-within:border-red-500 dark:focus-within:shadow-red-500/20 dark:focus-within:shadow-xl dark:text-white
+                text-black  bg-gray-200 border-black/20 focus-within:border-red-700 focus-within:shadow-red-700/20 focus-within:shadow-xl text-black
 
+                ${videoLinkVerified ? "pointer-events-none"  : "pointer-events-auto py-3 px-4"}
             `}>
 
                 

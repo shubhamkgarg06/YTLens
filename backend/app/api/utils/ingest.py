@@ -2,10 +2,9 @@ from app.services.vector_db_store.store_vector import store_to_vector_db
 from app.services.Video_operations.video_transcribe import get_transcript
 from app.services.chunking.documents_chunk import create_documents
 
-import os
+from app.core.cntext_retrival.reranking import create_bm25_index
 
-from app.services.Embedding.hg_face_emb import embeddings
-from langchain_chroma import Chroma
+import os
 
 from app.utils.get_video_folder import get_video_folder
 
@@ -20,17 +19,18 @@ def ingest_video(video_url):
         print(
             f"Folder for video ID {video_id} already exists. Loading existing DB."
         )
-        
-        return
+
         
     # ---------------------------------------------------
     # Otherwise Create New Vector DB
     # ---------------------------------------------------
     
-    video_folder.mkdir(
-        parents=True,
-        exist_ok=True
-    )
+    else:
+        print(f"Folder for video ID {video_id} does not exist. Starting ingestion process.")
+        video_folder.mkdir(
+            parents=True,
+            exist_ok=True
+        )
     
     
     transcript_list = get_transcript(video_id)
@@ -40,6 +40,13 @@ def ingest_video(video_url):
         return None, None
     
     documents = create_documents(transcript_list, video_id)
+    
+    
+    print(f"Creating BM25 index for video ID {video_id}...")
+
+    bm25_index = create_bm25_index(documents, video_id)
+    
+    
 
     print("Creating new vector database...")
 

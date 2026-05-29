@@ -1,0 +1,77 @@
+[
+    {
+        "type": "human",
+        "data": {
+            "content": "from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder  main_workflow_prompt = ChatPromptTemplate.from_messages([     (         \"system\",         \"\"\" You are a YouTube video assistant.  Answer ONLY using the provided context. Do NOT use outside knowledge. Do NOT make assumptions or hallucinate information.  If the answer cannot be found in the context, respond exactly with:  I could not find its reference in this video.  ------------------------- RESPONSE FORMAT RULES -------------------------  Your response MUST be written in Markdown.  For every answer, use the following structure whenever possible:  ⏱️ **Timestamp:** [timestamp]  ### Explanation A short explanation of the answer.  ### Key Points - Point 1 - Point 2 - Point 3  ### Key Takeaway A single sentence summarizing the main idea.  ------------------------- TIMESTAMP RULES -------------------------  - Always include the most relevant timestamp if available. - Use timestamps exactly as provided in the context. - Format timestamps like:   - 01:25   - 12:43   - 1:05:22 - If multiple timestamps are relevant, use:  ### Relevant Sections - 12:10 — Topic A - 18:25 — Topic B - 27:00 — Topic C  ------------------------- FORMATTING RULES -------------------------  - Use Markdown only. - Use headings for organization. - Use bullet points for important information. - Keep paragraphs short (maximum 2-3 sentences). - Never return a large wall of text. - Never write more than 3 consecutive sentences without using bullets. - Highlight important terms using **bold**. - Use numbered lists only when explaining a sequence of steps. - Use tables only when comparing multiple concepts. - Use Markdown code blocks when code appears in the context.  ------------------------- ANSWER QUALITY RULES -------------------------  - Be concise but complete. - Prioritize information directly related to the user's question. - Remove unnecessary details. - Avoid repetition. - If the answer contains multiple concepts, separate them into bullet points. - If the answer is lengthy, provide a short summary first and details afterward.  ------------------------- EXAMPLE RESPONSE -------------------------  ⏱️ **Timestamp:** 27:00  ### Explanation  This section explains how programming languages are executed by computers and compares how **C** and **Java** programs run.  ### Key Points  - **C** code is compiled directly into machine code. - Machine code is specific to a CPU architecture. - **Java** code is compiled into bytecode. - The **JVM** converts bytecode into machine code at runtime. - This allows Java programs to be platform-independent.  ### Key Takeaway  Java achieves portability through the JVM, whereas C programs are typically platform-specific. \"\"\"     ),      MessagesPlaceholder(variable_name=\"chat_history\"),      (         \"human\",         \"\"\" Question: {question}  Context: {context} \"\"\"     ), ])",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": null
+        }
+    },
+    {
+        "type": "ai",
+        "data": {
+            "content": "⏱️ **Timestamp:** 6:24\n\n### Explanation\nThe section around 6:24 explains the basics of expressions and Boolean values in Python.\n\n### Key Points\n- In Python, an expression is a piece of code that produces a value.\n- Boolean values are used to represent true or false.\n- The Python interpreter can execute expressions and return values.\n- Syntax errors occur when the code is not grammatically correct.\n\n### Key Takeaway\nPython uses expressions to produce values and Boolean values to represent true or false, and it has a concept of syntax similar to spoken languages.",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "ai",
+            "name": null,
+            "id": null,
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": null
+        }
+    },
+    {
+        "type": "human",
+        "data": {
+            "content": "What is explained around 27:00",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": null
+        }
+    },
+    {
+        "type": "ai",
+        "data": {
+            "content": "⏱️ **Timestamp:** 27:00\n\n### Explanation\nThe section around 27:00 explains how programming languages are executed by computers, focusing on the compilation and execution of **C**, **Java**, and **Python** code.\n\n### Key Points\n- **C** code is compiled into machine code using a **C compiler**, which is specific to a computer's CPU.\n- **Java** code is compiled into **Java bytecode**, a portable language that is not specific to a hardware platform.\n- The **Java Virtual Machine (JVM)** converts **Java bytecode** into machine code at runtime, allowing Java programs to be platform-independent.\n- **Python** code is compiled into **Python bytecode** using **CPython**, and then executed by the **Python Virtual Machine**, which converts it into machine code.\n\n### Key Takeaway\nProgramming languages like **C**, **Java**, and **Python** are executed by computers through compilation and execution processes, with **Java** and **Python** achieving platform independence through the use of virtual machines.",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "ai",
+            "name": null,
+            "id": null,
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": null
+        }
+    },
+    {
+        "type": "human",
+        "data": {
+            "content": "What is explained around 27:00",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": null
+        }
+    },
+    {
+        "type": "ai",
+        "data": {
+            "content": "⏱️ **Timestamp:** 27:00\n\n### Explanation\nThe section around 27:00 explains how programming languages like **C**, **Java**, and **Python** are executed by computers, focusing on the compilation and execution processes.\n\n### Key Points\n- **C** code is compiled into machine code using a **C compiler**, which is specific to a computer's CPU.\n- **Java** code is compiled into **Java bytecode**, a portable language that is not specific to a hardware platform.\n- The **Java Virtual Machine (JVM)** converts **Java bytecode** into machine code at runtime, allowing Java programs to be platform-independent.\n- **Python** code is compiled into **Python bytecode** using **CPython**, and then executed by the **Python Virtual Machine**, which converts it into machine code.\n\n### Key Takeaway\nProgramming languages like **C**, **Java**, and **Python** use different compilation and execution processes to achieve platform independence, with **Java** and **Python** using virtual machines to convert bytecode into machine code at runtime.",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "ai",
+            "name": null,
+            "id": null,
+            "tool_calls": [],
+            "invalid_tool_calls": [],
+            "usage_metadata": null
+        }
+    }
+]
