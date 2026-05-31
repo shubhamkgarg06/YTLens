@@ -33,3 +33,14 @@
         transform: translateY(0);
     }
 }
+
+
+/* globals.css or index.css */
+.prose code::before,
+.prose code::after {
+  content: none; /* removes the backtick quotes prose adds around inline code */
+}
+
+ul {
+  list-style-type: disc;
+}

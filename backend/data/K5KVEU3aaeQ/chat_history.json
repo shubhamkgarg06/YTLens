@@ -13,7 +13,7 @@
     {
         "type": "ai",
         "data": {
-            "content": "### Operators Explained\n\n**Operators**, in this context, refer to **logical operators** in Python. The three logical operators are:\n* `and`\n* `or`\n* `not`\n\nThese operators are used to model more complex conditions in a program. \n\nKey points about logical operators:\n* They are used to combine conditions\n* They are used in decision-making in a program\n* Examples of using logical operators include:\n  + Implementing conditions in a loan application\n  + Checking if an applicant has **high income** and **good credit** \n\nIn the given code example, the `and` operator is used to implement the condition: `if high_income and good_credit`. This condition checks if the applicant has both **high income** and **good credit**, and if so, prints \"eligible\". \n\nNote that comparing a Boolean variable to `true` is redundant and unnecessary, as the variable itself is either `true` or `false`.",
+            "content": "### Operators Explained\n**Operators**, in this context, refer to **comparison operators**. \n\nSome examples of comparison operators include:\n* Greater than (`>`)\n* Greater than or equal to (`>=`)\n* Less than (`<`)\n* Less than or equal to (`<=`)\n* Equality (`==`)\n\nThese operators are used to compare values and return a **Boolean** value (`true` or `false`).\n\nThis is explained in the video at [[66:18]] to [[67:36]].",
             "additional_kwargs": {},
             "response_metadata": {},
             "type": "ai",
@@ -38,7 +38,7 @@
     {
         "type": "ai",
         "data": {
-            "content": "### Operators Explained\n\n**Operators**, in this context, refer to **comparison operators**. These operators are used to compare values and return a Boolean result (`true` or `false`).\n\nExamples of comparison operators include:\n* Greater than (`>`)\n* Greater than or equal to (`>=`)\n* Less than (`<`)\n* Less than or equal to (`<=`)\n* Equality (`==`)\n\nThese operators are used to evaluate expressions and return a Boolean value. For instance:\n* `10 > 3` returns `true`\n* `10 >= 3` returns `true`\n* `10 < 20` returns `true`\n* `10 == 10` returns `true`\n* `10 == '10'` returns `false` (because the values have different types)",
+            "content": "### Operators Explained\n**Operators** in this context refer to **logical operators** in Python. \nThe three logical operators are:\n* `and`\n* `or`\n* `not`\n\nThese operators are used to model more complex conditions in a program, as seen in the loan application example at [[74:54]] to [[76:26]]. \n\nIn this example, the `and` operator is used to check if an applicant has **high income** and **good credit**.",
             "additional_kwargs": {},
             "response_metadata": {},
             "type": "ai",
@@ -52,7 +52,7 @@
     {
         "type": "human",
         "data": {
-            "content": "what are operators",
+            "content": "What are operators",
             "additional_kwargs": {},
             "response_metadata": {},
             "type": "human",
@@ -63,7 +63,7 @@
     {
         "type": "ai",
         "data": {
-            "content": "### Operators Explained\n**Operators**, in this context, refer to **logical operators** in Python. The three logical operators are:\n* `and`\n* `or`\n* `not`\n\nThese operators are used to model more complex conditions in a program. \n\nKey points about logical operators:\n* They are used to combine conditions\n* They are used in decision-making in a program\n* Examples of using logical operators include:\n  + Implementing conditions in a loan application\n  + Checking if an applicant has **high income** and **good credit** \n\nIn the given code example, the `and` operator is used to implement the condition: `if high_income and good_credit`. This condition checks if the applicant has both **high income** and **good credit**, and if so, prints \"eligible\". \n\nThis is explained in the video at [[74:54]] to [[76:26]].",
+            "content": "### Operators Explained\n**Operators**, in this context, refer to **comparison operators**. \n\nSome examples of comparison operators include:\n* Greater than (`>`)\n* Greater than or equal to (`>=`)\n* Less than (`<`)\n* Less than or equal to (`<=`)\n* Equality (`==`)\n\nThese operators are used to compare values and return a **Boolean** value (`true` or `false`), as explained in the video at [[66:18]] to [[67:36]]. \n\nExamples of comparison operators in action:\n* `10 > 3` returns `true`\n* `10 >= 3` returns `true`\n* `10 < 20` returns `true`\n* `10 == 10` returns `true`\n* `10 == '10'` returns `false` due to different data types.",
             "additional_kwargs": {},
             "response_metadata": {},
             "type": "ai",

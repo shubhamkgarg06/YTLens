@@ -29,8 +29,8 @@ function VideoPlayer({ setPlayer}) {
 
     const videoId = extractVideoId(videoUrl);
 
-    console.log("VIDEO URL:", videoUrl);
-    console.log("VIDEO ID:", videoId);
+    // console.log("VIDEO URL:", videoUrl);
+    // console.log("VIDEO ID:", videoId);
 
     return (
 

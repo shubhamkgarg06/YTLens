@@ -52,10 +52,10 @@ function InputBox({setMessages }) {
             // Add the AI's response to the chat
             setMessages(prevMessages => [...prevMessages, { type: "ai", content: data.response }]);
 
-            // console.log("AI response:", data.response);
+            console.log("AI response:\n", data.response);
         }
         catch(error){
-            console.error(error);
+            // console.error(error);
             setMessages(prevMessages => [...prevMessages, { type: "ai", content: "Sorry, there was an error processing your request." }]);
             // alert("Backend connection failed");
         }

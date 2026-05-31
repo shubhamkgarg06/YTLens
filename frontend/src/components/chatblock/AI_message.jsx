@@ -25,12 +25,10 @@ function AIMessage({content}) {
       >
         <div className="
               prose
-              dark:prose-invert
+              prose-invert
               max-w-none
             ">
-                <ReactMarkdown
-
-                  >
+                <ReactMarkdown>
                     {content}
                   </ReactMarkdown>
 

@@ -46,14 +46,14 @@ function VideoLinkBox({ videoLinkVerified, setVideoLinkVerified }) {
             
             setVideoData(data);
             setVideoUrl(inputUrl);
-            console.log(data);
+            // console.log(data);
             setVideoLinkVerified(true);
             setLoadingDone(true);
 
         } catch (error) {
 
-            console.error(error);
-            alert("Backend connection failed");
+            // console.error(error);
+            alert("Error fetching video data. Please try again." + error.message);
             setLoadingDone(false);
 
         } 
