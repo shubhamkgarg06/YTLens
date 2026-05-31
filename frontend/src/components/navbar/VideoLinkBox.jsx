@@ -74,7 +74,7 @@ function VideoLinkBox({ videoLinkVerified, setVideoLinkVerified }) {
                 shadow-lg
                 transition-all duration-300
                 dark:bg-[#111827]/90 dark:border-white/20 dark:focus-within:border-red-500 dark:focus-within:shadow-red-500/20 dark:focus-within:shadow-xl dark:text-white
-                text-black  bg-gray-200 border-black/20 focus-within:border-red-700 focus-within:shadow-red-700/20 focus-within:shadow-xl text-black
+                text-black  bg-gray-200 border-black/20 focus-within:border-red-700 focus-within:shadow-red-700/20 focus-within:shadow-xl 
 
                 ${videoLinkVerified ? "pointer-events-none"  : "pointer-events-auto py-3 px-4"}
             `}>
