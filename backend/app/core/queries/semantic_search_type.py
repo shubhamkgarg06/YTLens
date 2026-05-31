@@ -1,6 +1,8 @@
 from app.utils.answer_utils import generate_answer
-from app.core.cntext_retrival.reranking import create_bm25_index, retrieval_pipeline , reranker
+from app.core.cntext_retrival.reranking import create_bm25_index, retrieval_pipeline
 from app.utils.get_video_folder import get_video_folder
+
+from app.models.Reranker_model import RerankerModel
 
 from app.utils.context_build_utils import build_context_from_docs
 
@@ -30,6 +32,8 @@ def get_response_semantic_type_query(user_message, chat_history, video_id , chai
         with open(video_folder / "bm25.pkl","rb") as f:
             bm25_retriever = pickle.load(f)
         
+        
+        reranker = RerankerModel.get_reranker()
 
 
         # ---------------------------------------------------

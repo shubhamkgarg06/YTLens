@@ -2,7 +2,7 @@
     {
         "type": "human",
         "data": {
-            "content": "from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder  main_workflow_prompt = ChatPromptTemplate.from_messages([     (         \"system\",         \"\"\" You are a YouTube video assistant.  Answer ONLY using the provided context. Do NOT use outside knowledge. Do NOT make assumptions or hallucinate information.  If the answer cannot be found in the context, respond exactly with:  I could not find its reference in this video.  ------------------------- RESPONSE FORMAT RULES -------------------------  Your response MUST be written in Markdown.  For every answer, use the following structure whenever possible:  ⏱️ **Timestamp:** [timestamp]  ### Explanation A short explanation of the answer.  ### Key Points - Point 1 - Point 2 - Point 3  ### Key Takeaway A single sentence summarizing the main idea.  ------------------------- TIMESTAMP RULES -------------------------  - Always include the most relevant timestamp if available. - Use timestamps exactly as provided in the context. - Format timestamps like:   - 01:25   - 12:43   - 1:05:22 - If multiple timestamps are relevant, use:  ### Relevant Sections - 12:10 — Topic A - 18:25 — Topic B - 27:00 — Topic C  ------------------------- FORMATTING RULES -------------------------  - Use Markdown only. - Use headings for organization. - Use bullet points for important information. - Keep paragraphs short (maximum 2-3 sentences). - Never return a large wall of text. - Never write more than 3 consecutive sentences without using bullets. - Highlight important terms using **bold**. - Use numbered lists only when explaining a sequence of steps. - Use tables only when comparing multiple concepts. - Use Markdown code blocks when code appears in the context.  ------------------------- ANSWER QUALITY RULES -------------------------  - Be concise but complete. - Prioritize information directly related to the user's question. - Remove unnecessary details. - Avoid repetition. - If the answer contains multiple concepts, separate them into bullet points. - If the answer is lengthy, provide a short summary first and details afterward.  ------------------------- EXAMPLE RESPONSE -------------------------  ⏱️ **Timestamp:** 27:00  ### Explanation  This section explains how programming languages are executed by computers and compares how **C** and **Java** programs run.  ### Key Points  - **C** code is compiled directly into machine code. - Machine code is specific to a CPU architecture. - **Java** code is compiled into bytecode. - The **JVM** converts bytecode into machine code at runtime. - This allows Java programs to be platform-independent.  ### Key Takeaway  Java achieves portability through the JVM, whereas C programs are typically platform-specific. \"\"\"     ),      MessagesPlaceholder(variable_name=\"chat_history\"),      (         \"human\",         \"\"\" Question: {question}  Context: {context} \"\"\"     ), ])",
+            "content": "What are operators",
             "additional_kwargs": {},
             "response_metadata": {},
             "type": "human",
@@ -13,7 +13,7 @@
     {
         "type": "ai",
         "data": {
-            "content": "⏱️ **Timestamp:** 6:24\n\n### Explanation\nThe section around 6:24 explains the basics of expressions and Boolean values in Python.\n\n### Key Points\n- In Python, an expression is a piece of code that produces a value.\n- Boolean values are used to represent true or false.\n- The Python interpreter can execute expressions and return values.\n- Syntax errors occur when the code is not grammatically correct.\n\n### Key Takeaway\nPython uses expressions to produce values and Boolean values to represent true or false, and it has a concept of syntax similar to spoken languages.",
+            "content": "### Operators Explained\n\n**Operators**, in this context, refer to **logical operators** in Python. The three logical operators are:\n* `and`\n* `or`\n* `not`\n\nThese operators are used to model more complex conditions in a program. \n\nKey points about logical operators:\n* They are used to combine conditions\n* They are used in decision-making in a program\n* Examples of using logical operators include:\n  + Implementing conditions in a loan application\n  + Checking if an applicant has **high income** and **good credit** \n\nIn the given code example, the `and` operator is used to implement the condition: `if high_income and good_credit`. This condition checks if the applicant has both **high income** and **good credit**, and if so, prints \"eligible\". \n\nNote that comparing a Boolean variable to `true` is redundant and unnecessary, as the variable itself is either `true` or `false`.",
             "additional_kwargs": {},
             "response_metadata": {},
             "type": "ai",
@@ -27,7 +27,7 @@
     {
         "type": "human",
         "data": {
-            "content": "What is explained around 27:00",
+            "content": "What are operators",
             "additional_kwargs": {},
             "response_metadata": {},
             "type": "human",
@@ -38,7 +38,7 @@
     {
         "type": "ai",
         "data": {
-            "content": "⏱️ **Timestamp:** 27:00\n\n### Explanation\nThe section around 27:00 explains how programming languages are executed by computers, focusing on the compilation and execution of **C**, **Java**, and **Python** code.\n\n### Key Points\n- **C** code is compiled into machine code using a **C compiler**, which is specific to a computer's CPU.\n- **Java** code is compiled into **Java bytecode**, a portable language that is not specific to a hardware platform.\n- The **Java Virtual Machine (JVM)** converts **Java bytecode** into machine code at runtime, allowing Java programs to be platform-independent.\n- **Python** code is compiled into **Python bytecode** using **CPython**, and then executed by the **Python Virtual Machine**, which converts it into machine code.\n\n### Key Takeaway\nProgramming languages like **C**, **Java**, and **Python** are executed by computers through compilation and execution processes, with **Java** and **Python** achieving platform independence through the use of virtual machines.",
+            "content": "### Operators Explained\n\n**Operators**, in this context, refer to **comparison operators**. These operators are used to compare values and return a Boolean result (`true` or `false`).\n\nExamples of comparison operators include:\n* Greater than (`>`)\n* Greater than or equal to (`>=`)\n* Less than (`<`)\n* Less than or equal to (`<=`)\n* Equality (`==`)\n\nThese operators are used to evaluate expressions and return a Boolean value. For instance:\n* `10 > 3` returns `true`\n* `10 >= 3` returns `true`\n* `10 < 20` returns `true`\n* `10 == 10` returns `true`\n* `10 == '10'` returns `false` (because the values have different types)",
             "additional_kwargs": {},
             "response_metadata": {},
             "type": "ai",
@@ -52,7 +52,7 @@
     {
         "type": "human",
         "data": {
-            "content": "What is explained around 27:00",
+            "content": "what are operators",
             "additional_kwargs": {},
             "response_metadata": {},
             "type": "human",
@@ -63,7 +63,7 @@
     {
         "type": "ai",
         "data": {
-            "content": "⏱️ **Timestamp:** 27:00\n\n### Explanation\nThe section around 27:00 explains how programming languages like **C**, **Java**, and **Python** are executed by computers, focusing on the compilation and execution processes.\n\n### Key Points\n- **C** code is compiled into machine code using a **C compiler**, which is specific to a computer's CPU.\n- **Java** code is compiled into **Java bytecode**, a portable language that is not specific to a hardware platform.\n- The **Java Virtual Machine (JVM)** converts **Java bytecode** into machine code at runtime, allowing Java programs to be platform-independent.\n- **Python** code is compiled into **Python bytecode** using **CPython**, and then executed by the **Python Virtual Machine**, which converts it into machine code.\n\n### Key Takeaway\nProgramming languages like **C**, **Java**, and **Python** use different compilation and execution processes to achieve platform independence, with **Java** and **Python** using virtual machines to convert bytecode into machine code at runtime.",
+            "content": "### Operators Explained\n**Operators**, in this context, refer to **logical operators** in Python. The three logical operators are:\n* `and`\n* `or`\n* `not`\n\nThese operators are used to model more complex conditions in a program. \n\nKey points about logical operators:\n* They are used to combine conditions\n* They are used in decision-making in a program\n* Examples of using logical operators include:\n  + Implementing conditions in a loan application\n  + Checking if an applicant has **high income** and **good credit** \n\nIn the given code example, the `and` operator is used to implement the condition: `if high_income and good_credit`. This condition checks if the applicant has both **high income** and **good credit**, and if so, prints \"eligible\". \n\nThis is explained in the video at [[74:54]] to [[76:26]].",
             "additional_kwargs": {},
             "response_metadata": {},
             "type": "ai",

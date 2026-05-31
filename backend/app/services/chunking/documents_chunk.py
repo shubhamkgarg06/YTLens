@@ -121,6 +121,10 @@ def create_documents(transcript_list, video_id):
         "full_document.json"
     )
     
+    if os.path.exists(output_path):
+        print(f"Full document JSON already exists at {output_path}. Skipping export.")
+        return documents
+    
     with open(output_path,"w",encoding="utf-8") as f:
 
         json.dump(

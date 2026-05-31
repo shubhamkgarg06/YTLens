@@ -1,19 +1,24 @@
 import { SendHorizontal } from 'lucide-react';
 import useVideo from '../../context/VideoContext';
 import { useState } from 'react';
+import { LoaderCircle } from 'lucide-react';
 
-function InputBox({setMessages}) {
+function InputBox({setMessages }) {
 
     const [input, setInput] = useState("");
+    const [LoadingAiMessage, setLoadingAiMessage] = useState(false)
+
     const { videoID } = useVideo();
 
     const handleSubmit = async () => {
 
+        if(LoadingAiMessage) return;
         
 
         // Add the user's message to the chat
         setMessages(prevMessages => [...prevMessages, { type: "user", content: input }]);
         setInput("");
+        setLoadingAiMessage(true)
 
         if (videoID === "") {
             setTimeout(() => {
@@ -25,7 +30,8 @@ function InputBox({setMessages}) {
                     }
                 ]);
             }, 1000);
-        
+
+            setLoadingAiMessage(false)
             return;
         }
 
@@ -45,6 +51,8 @@ function InputBox({setMessages}) {
 
             // Add the AI's response to the chat
             setMessages(prevMessages => [...prevMessages, { type: "ai", content: data.response }]);
+
+            // console.log("AI response:", data.response);
         }
         catch(error){
             console.error(error);
@@ -52,9 +60,9 @@ function InputBox({setMessages}) {
             // alert("Backend connection failed");
         }
 
-        
-        
+        setLoadingAiMessage(false)
 
+        return;
         
     }
         
@@ -88,11 +96,17 @@ function InputBox({setMessages}) {
                     </div>
             
                     <div className="flex justify-end">
+
+
                         <button
                             type="submit"
                             className="px-2 py-1 rounded-xl bg-red-500 text-white hover:bg-white hover:text-red-500 transition-colors duration-200">
-                            <SendHorizontal />
+
+                                {LoadingAiMessage ? <LoaderCircle className="animate-spin" /> : <SendHorizontal />}
+                            {/* <SendHorizontal /> */}
                         </button>
+
+
                     </div>
             </form>
         </>

@@ -23,7 +23,18 @@ function AIMessage({content}) {
           dark:text-white
         "
       >
-        <ReactMarkdown>{content}</ReactMarkdown>
+        <div className="
+              prose
+              dark:prose-invert
+              max-w-none
+            ">
+                <ReactMarkdown
+
+                  >
+                    {content}
+                  </ReactMarkdown>
+
+          </div>
       </div>
     </div>
   );

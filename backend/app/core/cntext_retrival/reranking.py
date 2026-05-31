@@ -1,9 +1,8 @@
 from rank_bm25 import BM25Okapi
-from sentence_transformers import CrossEncoder
 from app.utils.get_video_folder import get_video_folder
 
 import pickle
-
+import os
 
 # =====================================================
 # CREATE BM25 INDEX
@@ -12,6 +11,17 @@ import pickle
 def create_bm25_index(docs , video_id):
 
     video_folder = get_video_folder(video_id)
+    
+    if os.path.exists(video_folder / "bm25.pkl"):
+
+        print(f"BM25 index already exists for video ID {video_id}. Loading existing index.")
+
+        with open(video_folder / "bm25.pkl", "rb") as f:
+
+            bm25 = pickle.load(f)
+
+        return bm25
+
 
     tokenized_docs = [
         doc.page_content.lower().split()
@@ -19,6 +29,8 @@ def create_bm25_index(docs , video_id):
     ]
 
     bm25 = BM25Okapi(tokenized_docs)
+    
+    
     
     with open(video_folder / "bm25.pkl","wb" ) as f:
         pickle.dump(bm25, f)
@@ -31,9 +43,7 @@ def create_bm25_index(docs , video_id):
 # =====================================================
 
 
-reranker = CrossEncoder(
-    "BAAI/bge-reranker-base"
-)
+
 
 
 

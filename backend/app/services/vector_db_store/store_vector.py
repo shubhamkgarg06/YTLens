@@ -4,6 +4,7 @@ from app.utils.get_video_folder import get_video_folder
 from app.models.Embedding_model import EmbeddingModel
 
 from dotenv import load_dotenv
+import os
 
 
 def store_to_vector_db(documents, video_id):
@@ -24,6 +25,14 @@ def store_to_vector_db(documents, video_id):
         return None
     
     db_path = video_folder / "chroma_db"
+    
+    if os.path.exists(db_path):
+        print(f"Vector database already exists for video ID {video_id}. Loading existing database.")
+        vector_store = Chroma(
+            embedding_function=embeddings,
+            persist_directory=str(db_path)
+        )
+        return vector_store
 
 
     # Create vector database

@@ -48,6 +48,7 @@ function VideoLinkBox({ videoLinkVerified, setVideoLinkVerified }) {
             setVideoUrl(inputUrl);
             console.log(data);
             setVideoLinkVerified(true);
+            setLoadingDone(true);
 
         } catch (error) {
 
@@ -55,10 +56,7 @@ function VideoLinkBox({ videoLinkVerified, setVideoLinkVerified }) {
             alert("Backend connection failed");
             setLoadingDone(false);
 
-        } finally {
-            
-            setLoadingDone(true);
-        }
+        } 
     };
 
     return (

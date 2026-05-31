@@ -31,7 +31,7 @@ function Chatblock() {
       
 
       <div>
-        <InputBox setMessages={setMessages} />
+        <InputBox setMessages={setMessages}/>
       </div>
     </div>
     );  

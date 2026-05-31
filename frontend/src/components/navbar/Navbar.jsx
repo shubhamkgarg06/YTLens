@@ -4,6 +4,7 @@ import Developer_mode_switch from "./Developer_mode";
 import Theme_toggle from "./Day-Night";
 import VideoLinkBox from "./VideoLinkBox";
 import useTheme from "../../context/ThemeContext";
+import { motion } from "framer-motion";
 
 function Navbar({ videoLinkVerified, setVideoLinkVerified }) {
   const { themeMode } = useTheme();
@@ -31,8 +32,19 @@ function Navbar({ videoLinkVerified, setVideoLinkVerified }) {
         />
       </div>
 
+
       {/* Video Input */}
-      <div
+      <motion.div
+        animate={{
+          top: videoLinkVerified ? "0" : "50%",
+          y: videoLinkVerified ? "0" : "-50%",
+          scale: videoLinkVerified ? 0.9 : 1.05,
+        }}
+        transition={{
+          type: "spring",
+          stiffness: 100,
+          damping: 18,
+        }}
         className={
           videoLinkVerified
             ? "flex-1 flex justify-center" 
@@ -40,7 +52,7 @@ function Navbar({ videoLinkVerified, setVideoLinkVerified }) {
         }
       >
         <VideoLinkBox videoLinkVerified={videoLinkVerified} setVideoLinkVerified={setVideoLinkVerified} />
-      </div>
+      </motion.div>
 
       {/* Right Controls */}
       <div

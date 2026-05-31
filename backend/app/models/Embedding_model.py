@@ -5,6 +5,8 @@ class EmbeddingModel:
 
     @classmethod
     def get_embeddings(cls):
+        
+        
         if cls._instance is None:
             cls._instance = HuggingFaceEmbeddings(
                 model_name="BAAI/bge-small-en"
