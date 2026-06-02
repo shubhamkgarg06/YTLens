@@ -6,7 +6,7 @@ deep-translator
 langchain
 langchain_core
 langchain-community
-langchain_text_splitter
+langchain-text-splitter
 
 langchain_huggingface
 
@@ -23,5 +23,5 @@ sentence-transformers
 
 fastapi 
 uvicorn 
-yt-dlp
+yt_dlp
 python-multipart

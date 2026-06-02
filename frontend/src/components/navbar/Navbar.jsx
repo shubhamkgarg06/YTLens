@@ -6,25 +6,15 @@ import VideoLinkBox from "./VideoLinkBox";
 import useTheme from "../../context/ThemeContext";
 import { motion } from "framer-motion";
 
-function Navbar({ videoLinkVerified, setVideoLinkVerified }) {
+function Navbar({ DeveloperModeEnabled, setDeveloperModeEnabled }) {
   const { themeMode } = useTheme();
 
   return (
     <nav
-      className={
-        videoLinkVerified
-          ? "sticky top-0 z-50 flex items-center justify-between px-4 py-2 backdrop-blur-md shadow-lg"
-          : "relative h-screen"
-      }
+      className={"sticky top-0 z-50 flex items-center justify-between px-4 py-2 backdrop-blur-md shadow-lg"}
     >
       {/* Logo */}
-      <div
-        className={
-          videoLinkVerified
-            ? ""
-            : "absolute top-4 left-4"
-        }
-      >
+      <div>
         <img
           src={themeMode === "dark" ? myLogo_night : myLogo_day}
           alt="Logo"
@@ -34,35 +24,18 @@ function Navbar({ videoLinkVerified, setVideoLinkVerified }) {
 
 
       {/* Video Input */}
-      <motion.div
-        animate={{
-          top: videoLinkVerified ? "0" : "50%",
-          y: videoLinkVerified ? "0" : "-50%",
-          scale: videoLinkVerified ? 0.9 : 1.05,
-        }}
-        transition={{
-          type: "spring",
-          stiffness: 100,
-          damping: 18,
-        }}
-        className={
-          videoLinkVerified
-            ? "flex-1 flex justify-center" 
-            : "absolute inset-0 flex items-center justify-center"
-        }
+      <div
+        
+        className={"absolute inset-0 flex items-center justify-center"}
       >
-        <VideoLinkBox videoLinkVerified={videoLinkVerified} setVideoLinkVerified={setVideoLinkVerified} />
-      </motion.div>
+        <VideoLinkBox />
+      </div>
 
       {/* Right Controls */}
       <div
-        className={
-          videoLinkVerified
-            ? "flex gap-4 items-center px-4 py-2"
-            : "absolute top-4 right-4 flex gap-4 items-center"
-        }
+        className={"flex gap-4 items-center px-4 py-2"}
       >
-        <Developer_mode_switch />
+        <Developer_mode_switch DeveloperModeEnabled={DeveloperModeEnabled} setDeveloperModeEnabled={setDeveloperModeEnabled} />
         <Theme_toggle />
       </div>
     </nav>

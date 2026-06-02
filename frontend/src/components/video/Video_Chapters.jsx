@@ -2,6 +2,8 @@ import { MessageSquareMore } from 'lucide-react';
 import { useState, useEffect , useRef } from 'react';
 import useVideo from '../../context/VideoContext';
 
+import { format_seconds_to_time as formatDuration } from '../../helpers/FormatDuration';
+
 function VideoChapters({player}) {
     
     const { videoData} = useVideo();
@@ -105,29 +107,6 @@ function VideoChapters({player}) {
 
 
 
-    function formatDuration(seconds) {
-
-        const hrs = Math.floor(seconds / 3600);
-
-        const mins = Math.floor((seconds % 3600) / 60);
-
-        const secs = Math.floor(seconds % 60);
-
-        const paddedMins = String(mins).padStart(2, "0");
-
-        const paddedSecs = String(secs).padStart(2, "0");
-
-        if (hrs > 0) {
-
-            const paddedHrs = String(hrs).padStart(2, "0");
-
-            return `${paddedHrs}:${paddedMins}:${paddedSecs}`;
-        }
-
-        return `${paddedMins}:${paddedSecs}`;
-    }
-
-
 
     return (
 
@@ -162,10 +141,7 @@ function VideoChapters({player}) {
                             key={chapter.start_time}
 
                             onClick={() => {
-
-                                player?.seekTo(chapter.start_time);
-
-                                player?.playVideo();
+                                player?.seekTo(chapter.start_time , true);
                             }}
 
                             className={`

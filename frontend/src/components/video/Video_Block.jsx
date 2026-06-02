@@ -1,13 +1,10 @@
 import VideoPlayer from './Video_Player.jsx'
 import VideoInfo from './VideoInfo.jsx'
 import VideoChapters from './Video_Chapters.jsx'
-import { useState } from 'react';
-import useVideo from "../../context/VideoContext";
 
-function VideoBlock() {
+function VideoBlock({player , setPlayer}) {
 
-    const { videoUrl, videoData } = useVideo();
-    const [player, setPlayer] = useState(null);
+    
 
     return (
         <div className="flex flex-col w-full h-full gap-2 overflow-hidden"> 

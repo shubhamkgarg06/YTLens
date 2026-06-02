@@ -1,5 +1,3 @@
-from app.utils.timestamp_utils import format_timestamp
-
 # ---------------------------------------------------
 # Timestamp-Based Retrieval
 # ---------------------------------------------------
@@ -31,8 +29,8 @@ def build_context_from_docs(docs):
 
     for doc in docs:
 
-        start = format_timestamp(doc.metadata["start_time"])
-        end = format_timestamp(doc.metadata["end_time"])
+        start = doc.metadata["start_time"]
+        end = doc.metadata["end_time"]
 
         context += f"""
 [{start} → {end}]

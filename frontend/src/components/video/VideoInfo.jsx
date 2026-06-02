@@ -38,7 +38,7 @@ function VideoInfo() {
     return (
         <div className="h-full rounded-xl 
          bg-gray-300 dark:bg-gray-800 
-         p-2 overflow-hidden shadow-sm">
+         p-2 overflow-auto shadow-sm">
 
          {/* HEADER */}
          <div className="

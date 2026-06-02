@@ -3,7 +3,7 @@ import useVideo from '../../context/VideoContext';
 import { useState } from 'react';
 import { LoaderCircle } from 'lucide-react';
 
-function InputBox({setMessages }) {
+function InputBox({setMessages}) {
 
     const [input, setInput] = useState("");
     const [LoadingAiMessage, setLoadingAiMessage] = useState(false)
@@ -52,7 +52,7 @@ function InputBox({setMessages }) {
             // Add the AI's response to the chat
             setMessages(prevMessages => [...prevMessages, { type: "ai", content: data.response }]);
 
-            console.log("AI response:\n", data.response);
+            // console.log("AI response:\n", data.response);
         }
         catch(error){
             // console.error(error);

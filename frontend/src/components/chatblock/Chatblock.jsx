@@ -1,9 +1,9 @@
 import InputBox from "./Input_box";
 import UserMessage from "./User_message";
-import AI_Message from "./AI_message";
+import AI_Message from "./AiMessage/AI_message";
 import { useState , useEffect, useRef} from "react";
 
-function Chatblock() {
+function Chatblock({player}) {
 
   const [messages, setMessages] = useState([])
   const bottomRef = useRef(null)
@@ -22,7 +22,7 @@ function Chatblock() {
           if(msg.type === "user"){
             return <UserMessage key={index} content={msg.content} />
           } else {
-            return <AI_Message key={index} content={msg.content} />
+            return <AI_Message key={index} content={msg.content} player={player} />
           }
         })}
 
