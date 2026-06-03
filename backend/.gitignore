@@ -1,11 +1,38 @@
-.env
-venv
+# Python
 __pycache__/
-*.pyc
-*.pyo
-*.pyd
-.Python
-.git
+*.py[cod]
+*$py.class
 
-node_modules/
+# Virtualenvs
+.venv/
+venv/
+env/
+
+# Packaging
+build/
 dist/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+
+# Testing / coverage
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.pytest_cache/
+
+# Type check / caches
+.mypy_cache/
+.pyre/
+*.cache
+
+# Secrets
+.env
+.env.local
+
+# Misc
+*.log
+
+#data
+data/

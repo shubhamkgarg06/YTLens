@@ -6,4 +6,6 @@ def get_video_folder(video_id):
 
     video_folder = backend_dir / "data" / video_id
 
+    video_folder.mkdir(parents=True, exist_ok=True)
+
     return video_folder
