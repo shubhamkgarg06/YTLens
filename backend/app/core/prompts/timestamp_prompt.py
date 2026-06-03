@@ -22,7 +22,7 @@ start,end
 3. Do NOT return extra text.
 
 4. If user mentions a single timestamp like:
-"around 45 minutes"
+"around 45 minutes", "at 25:00"
 
 then create a reasonable range around it.
 

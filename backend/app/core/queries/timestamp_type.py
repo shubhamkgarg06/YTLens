@@ -3,6 +3,7 @@ from app.utils.context_build_utils import build_context_from_docs
 from app.utils.get_video_folder import get_video_folder
 from app.utils.context_build_utils import get_relevant_docs_by_timestamp
 
+from app.services.final_results_storing.Storing_results import store_final_results
 def get_response_timestamp_type_query(user_message,  chat_history, video_id , chain , timestamp_extraction_chain , documents):
 
     
@@ -19,7 +20,8 @@ def get_response_timestamp_type_query(user_message,  chat_history, video_id , ch
         "section",
         "part",
         "around",
-        "time"
+        "time",
+        "at"
     ]
     
     should_try_llm_timestamp = any(
@@ -28,11 +30,15 @@ def get_response_timestamp_type_query(user_message,  chat_history, video_id , ch
     )
 
     if should_try_llm_timestamp:    
+
+        print("\n Starting LLM Timestamp query try")
         
         
         llm_timestamp_response = timestamp_extraction_chain.invoke({
             "query": user_message
         })
+
+        print("\n LLM Response: " , llm_timestamp_response)
         
 
         if llm_timestamp_response.strip().upper() != "NONE":
@@ -45,6 +51,10 @@ def get_response_timestamp_type_query(user_message,  chat_history, video_id , ch
                 start_time = int(start_str.strip())
                 end_time = int(end_str.strip())
 
+                print("\n")
+                print("start time : " , start_time)
+                print("\n end time : " , end_time)
+
                 relevant_docs = get_relevant_docs_by_timestamp(
                     documents,
                     start_time,
@@ -52,6 +62,8 @@ def get_response_timestamp_type_query(user_message,  chat_history, video_id , ch
                 )
 
                 if relevant_docs:
+
+                    print("\nbuilding context")
 
                     context = build_context_from_docs(relevant_docs)
 
@@ -63,6 +75,13 @@ def get_response_timestamp_type_query(user_message,  chat_history, video_id , ch
                         video_id
                     )
 
+                    store_final_results(
+                        user_message,
+                        video_id,
+                        result,
+                        relevant_docs,
+                        "LLM Inferred Time Query",
+                    )
                     return result
 
             except Exception as e:

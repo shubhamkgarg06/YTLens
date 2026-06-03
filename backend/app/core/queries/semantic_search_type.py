@@ -6,6 +6,8 @@ from app.models.Reranker_model import RerankerModel
 
 from app.utils.context_build_utils import build_context_from_docs
 
+from app.services.final_results_storing.Storing_results import store_final_results
+
 import pickle
 
 from langchain_chroma import Chroma
@@ -76,6 +78,15 @@ def get_response_semantic_type_query(user_message, chat_history, video_id , chai
             chat_history,
             video_id
         ) 
+
+        store_final_results(
+            user_message,
+            video_id,
+            result,
+            docs,
+            "Vector DB Retrieval Type Query",
+            refined_question
+        )
 
         return result
 

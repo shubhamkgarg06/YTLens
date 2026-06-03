@@ -1,12 +1,13 @@
 import InputBox from "./Input_box";
 import UserMessage from "./User_message";
 import AI_Message from "./AiMessage/AI_message";
-import { useState , useEffect, useRef} from "react";
+import { useEffect, useRef} from "react";
+import useChatblockMessages from "../../context/ChatblockMessagesContext";
 
 function Chatblock({player}) {
 
-  const [messages, setMessages] = useState([])
   const bottomRef = useRef(null)
+  const { messages } = useChatblockMessages();
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({
@@ -31,7 +32,7 @@ function Chatblock({player}) {
       
 
       <div>
-        <InputBox setMessages={setMessages}/>
+        <InputBox/>
       </div>
     </div>
     );  

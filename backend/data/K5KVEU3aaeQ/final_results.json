@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "data": {
+            "user_message": "What are operators",
+            "reformulated_query": "What are operators in programming.",
+            "response_type": "Vector DB Retrieval Type Query",
+            "chunks": [
+                {
+                    "chunk_id": 63,
+                    "page_content": "to 12 12 and run the program we get not eligible so what we have here is called Turner operator in Python we have three logical operators and we use these operators to model more complex conditions so these operators are and or and not let's see a real word example of using these operators so imagine we're building an application for processing loans so we need two variables High income we can set this to true and good underlined credit we set it to true now here's the condition we want to implement if the applicant has high income and good credit score then they are eligible for the loan so if High income and good credit we add the colon and print eligible now note that here I have not compared the value of this variable with true that is one of the issues I see in a lot of beginners code this is redundant and unprofessional because High income is a Boolean so it's either true or false we don't need to compare true with true so if this condition is true and this second condition is true ",
+                    "metadata": {
+                        "chunk_index": 63,
+                        "video_id": "K5KVEU3aaeQ",
+                        "start_time": 4494.48,
+                        "end_time": 4586.639
+                    }
+                }
+            ],
+            "response": "**Operators** are special symbols used in programming to model complex conditions, and in the context of Python, specifically **logical operators** are used. These **logical operators** include **and**, **or**, and **not**, which are used to create more complex conditions. At [[4494.48]], the explanation starts with an example of using the **and** operator, where two conditions must be true for the overall condition to be true. In this case, the conditions are **High income** and **good credit**, and if both are true, then the applicant is eligible for the loan. The code example shows how to use the **and** operator to implement this condition, and it's noted that comparing a **Boolean** variable to **true** is redundant and unprofessional, as the variable itself is already a **Boolean** value."
+        }
+    },
+    {
+        "id": 2,
+        "data": {
+            "user_message": "What are functions",
+            "reformulated_query": "What are functions in programming, specifically in the context of a programming language such as Python, and how are they used to organize and reuse code to perform specific tasks.",
+            "response_type": "Vector DB Retrieval Type Query",
+            "chunks": [
+                {
+                    "chunk_id": 87,
+                    "page_content": "even numbers let's run the program and here's the result so that brings us to the end of this section in the next section you're going to learn how to create your own functions I hope you enjoyed the section and thank you for watching so far you have learned how to use some of the built-in functions in Python such as print round and so on in this section you're going to learn how to write your own functions now you might ask but why do we even need to write our own functions well when you build a real program that program is going to consist hundreds or thousands of lines of code you shouldn't write all that code in one file like we have done so far you should break that code into a smaller more maintainable and potentially more reusable chunks you refer to these chunks as functions so let me show you how to create your own custom functions we start with the defa keyword which is short for Define next we need to give our function a name so let's call this greet all the best practices you learn about naming your ",
+                    "metadata": {
+                        "chunk_index": 87,
+                        "video_id": "K5KVEU3aaeQ",
+                        "start_time": 6294.159,
+                        "end_time": 6370.8
+                    }
+                }
+            ],
+            "response": "**Functions** are reusable chunks of code that can be used to organize and structure a program, making it more maintainable and efficient. At [[6294.159]], the explanation starts by introducing the concept of functions and their importance in programming. It's mentioned that when building a real program, it's essential to break down the code into smaller, more manageable pieces, which are referred to as *functions*. These **functions** can be reused throughout the program, reducing code duplication and improving overall code quality. The explanation then proceeds to show how to create a custom **function** using the `def` keyword, followed by the function name, in this case, `greet`. The importance of following *best practices* for naming **functions** is also emphasized. \n\n \nThe explanation highlights that **functions** are essential for organizing large programs, which can consist of hundreds or thousands of lines of code, and that writing all the code in one file is not a good practice. By breaking down the code into smaller **functions**, developers can create more maintainable and reusable code. The video then delves into the details of creating a custom **function**, including the use of the `def` keyword and the importance of choosing a descriptive and meaningful name for the **function**. \n\nAt [[6370.8]], the explanation concludes by emphasizing the importance of **functions** in programming and how they can help developers create more efficient and organized code. The concept of **functions** is introduced as a way to write reusable code that can be easily maintained and updated, making it an essential tool for any programmer."
+        }
+    }
+]

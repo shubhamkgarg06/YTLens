@@ -4,6 +4,8 @@ from app.utils.get_video_folder import get_video_folder
 from app.utils.regex_timestamp_utils import regex_timestamp_parser
 from app.utils.context_build_utils import build_context_from_docs , get_relevant_docs_by_timestamp
 
+from app.services.final_results_storing.Storing_results import store_final_results
+
 
 def get_response_times_type_query(user_message , video_id , chain , chat_history , documents):
     
@@ -13,6 +15,7 @@ def get_response_times_type_query(user_message , video_id , chain , chat_history
     print(f"\n\nTimestamp info extracted from user message: {timestamp_info}\n\n")
 
     if timestamp_info["found"]:
+
         start_time = timestamp_info["start"]
         end_time = timestamp_info["end"]
 
@@ -35,6 +38,17 @@ def get_response_times_type_query(user_message , video_id , chain , chat_history
                 chat_history,
                 video_id
             )
+
+
+            store_final_results(
+                user_message,
+                video_id,
+                result,
+                relevant_docs,
+                "User Provided Time Query",
+            )
+
+
 
             return result
 

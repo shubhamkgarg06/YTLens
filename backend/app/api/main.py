@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.api.routers.video_url_router import router as video_router
 from app.api.routers.AI_response_router import router as ai_response_router
-
+from app.api.routers.Developer_mode_data_router import router as developer_mode_data_router
 
 app = FastAPI()
 # Configure CORS to allow requests from the frontend
@@ -38,4 +38,8 @@ app.include_router(
 app.include_router(
     ai_response_router,
     tags=["AI Response Operations"]
+)
+app.include_router(
+    developer_mode_data_router,
+    tags=["Developer Mode Data Operations"]
 )

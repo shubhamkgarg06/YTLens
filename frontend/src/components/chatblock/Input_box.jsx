@@ -2,21 +2,26 @@ import { SendHorizontal } from 'lucide-react';
 import useVideo from '../../context/VideoContext';
 import { useState } from 'react';
 import { LoaderCircle } from 'lucide-react';
+import useChatblockMessages from '../../context/ChatblockMessagesContext';
 
-function InputBox({setMessages}) {
+function InputBox() {
 
     const [input, setInput] = useState("");
+    const { messages, setMessages, setQueries } = useChatblockMessages();
+
+
     const [LoadingAiMessage, setLoadingAiMessage] = useState(false)
 
     const { videoID } = useVideo();
 
     const handleSubmit = async () => {
 
-        if(LoadingAiMessage) return;
-        
+        if (LoadingAiMessage) return;
+
 
         // Add the user's message to the chat
         setMessages(prevMessages => [...prevMessages, { type: "user", content: input }]);
+        const userInput = input
         setInput("");
         setLoadingAiMessage(true)
 
@@ -35,7 +40,7 @@ function InputBox({setMessages}) {
             return;
         }
 
-        try{
+        try {
 
             const res = await fetch(`http://127.0.0.1:8000/${videoID}/ask`, {
                 method: "POST",
@@ -52,9 +57,17 @@ function InputBox({setMessages}) {
             // Add the AI's response to the chat
             setMessages(prevMessages => [...prevMessages, { type: "ai", content: data.response }]);
 
+            setQueries(prev => [
+                ...prev,
+                {
+                    id: prev.length + 1,
+                    content: userInput,
+                }
+            ]);
+
             // console.log("AI response:\n", data.response);
         }
-        catch(error){
+        catch (error) {
             // console.error(error);
             setMessages(prevMessages => [...prevMessages, { type: "ai", content: "Sorry, there was an error processing your request." }]);
             // alert("Backend connection failed");
@@ -63,9 +76,9 @@ function InputBox({setMessages}) {
         setLoadingAiMessage(false)
 
         return;
-        
+
     }
-        
+
     return (
         <>
             <form className={`
@@ -77,7 +90,10 @@ function InputBox({setMessages}) {
                 rounded-xl p-2 
                 shadow-lg
                 transition-all duration-300
+                ${videoID === "" ? "pointer-events-none" : ""}
                 `}
+
+
 
                 onSubmit={(e) => {
                     e.preventDefault();
@@ -85,29 +101,29 @@ function InputBox({setMessages}) {
                     // Handle message submission logic here
                 }}>
 
-                    <div>
-                        <input
-                            type="text"
-                            placeholder="Ask anything about the video..."
-                            value={input}
-                            onChange={(e) => setInput(e.target.value)}
-                            className={`w-full dark:text-white dark:placeholder:text-gray-500 text-gray-800 placeholder:text-black outline-none text-sm bg-transparent overflow-auto`}
-                        />
-                    </div>
-            
-                    <div className="flex justify-end">
+                <div>
+                    <input
+                        type="text"
+                        placeholder={videoID === "" ? "Exter a valid Video URL to start" : "Ask anything about the video..."}
+                        value={input}
+                        onChange={(e) => setInput(e.target.value)}
+                        className={`w-full dark:text-white dark:placeholder:text-gray-500 text-gray-800 placeholder:text-black outline-none text-sm bg-transparent overflow-auto`}
+                    />
+                </div>
+
+                <div className="flex justify-end">
 
 
-                        <button
-                            type="submit"
-                            className="px-2 py-1 rounded-xl bg-red-500 text-white hover:bg-white hover:text-red-500 transition-colors duration-200">
+                    <button
+                        type="submit"
+                        className="px-2 py-1 rounded-xl bg-red-500 text-white hover:bg-white hover:text-red-500 transition-colors duration-200">
 
-                                {LoadingAiMessage ? <LoaderCircle className="animate-spin" /> : <SendHorizontal />}
-                            {/* <SendHorizontal /> */}
-                        </button>
+                        {LoadingAiMessage ? <LoaderCircle className="animate-spin" /> : <SendHorizontal />}
+                        {/* <SendHorizontal /> */}
+                    </button>
 
 
-                    </div>
+                </div>
             </form>
         </>
     );

@@ -22,7 +22,7 @@ def ingest_video(video_url):
 
         
     # ---------------------------------------------------
-    # Otherwise Create New Vector DB
+    # Otherwise Create New Video Folder
     # ---------------------------------------------------
     
     else:
@@ -31,6 +31,11 @@ def ingest_video(video_url):
             parents=True,
             exist_ok=True
         )
+
+
+    # ---------------------------------------------------
+    # Transcript Loading and Document Creation
+    # ---------------------------------------------------    
     
     
     transcript_list = get_transcript(video_id)
@@ -39,14 +44,26 @@ def ingest_video(video_url):
         print(f"No transcript available for video ID {video_id}. Ingestion aborted.")
         return None, None
     
+
+    # ---------------------------------------------------
+    # Document Creation
+    # ---------------------------------------------------
+
     documents = create_documents(transcript_list, video_id)
-    
-    
+
+
+    # ---------------------------------------------------
+    # BM25 Index Creation
+    # --------------------------------------------------- 
+
     print(f"Creating BM25 index for video ID {video_id}...")
 
     bm25_index = create_bm25_index(documents, video_id)
     
     
+    # ---------------------------------------------------
+    # Vector Database Creation
+    # ---------------------------------------------------
 
     print("Creating new vector database...")
 
@@ -54,7 +71,20 @@ def ingest_video(video_url):
         documents,
         video_id
     )
+
+
+    # ---------------------------------------------------
+    # Creating JSON files to storing final results of each query
+    # --------------------------------------------------- 
+
+    print("Creating JSON file for final results storage...")
+
+    final_results_path = video_folder / "final_results.json"
+
+    with open(final_results_path, "w", encoding="utf-8") as f:
+        f.write("[]")
     
+
     print("Processing Complete.")
     
     return
