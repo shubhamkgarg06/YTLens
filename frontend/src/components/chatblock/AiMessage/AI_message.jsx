@@ -27,7 +27,7 @@ function formatMarkdown(text) {
 
 function AIMessage({ content, player }) {
 
-  console.log("Rendering AIMessage with content:", content);
+  // console.log("Rendering AIMessage with content:", content);
 
 
   return (

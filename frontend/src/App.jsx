@@ -5,11 +5,11 @@ import VideoBlock from './components/video/Video_Block'
 import  {ThemeProvider }from "./context/ThemeContext";
 import { VideoProvider } from "./context/VideoContext";
 import DeveloperMode from './components/Developer/DeveloperMode';
-
+import {ChatblockMessagesProvider} from "./context/ChatblockMessagesContext";
 function App() {
 
   const [player, setPlayer] = useState(null);
-  const [DeveloperModeEnabled, setDeveloperModeEnabled] = useState(false);
+  const [DeveloperModeEnabled, setDeveloperModeEnabled] = useState(true);
 
   return (
 
@@ -36,17 +36,23 @@ function App() {
                     <VideoBlock player={player} setPlayer={setPlayer} />
                 </div>
 
-                <div className={` ${DeveloperModeEnabled ? "w-1/3" : "w-5/8"}`}>
-                    <Chatblock player={player}/>
-                </div>
+                <ChatblockMessagesProvider>
 
-                  {DeveloperModeEnabled &&
-                      <div className="w-1/3">
-                        <DeveloperMode />
-                      </div>
-                  }
+                    <div className={` ${DeveloperModeEnabled ? "w-1/3" : "w-5/8"}`}>
+                        <Chatblock player={player}/>
+                    </div>
+
+                      {DeveloperModeEnabled &&
+                          <div className="w-1/3">
+                            <DeveloperMode />
+                          </div>
+                      }
+
+                </ChatblockMessagesProvider>
 
               </div>
+
+              
 
         </div>
 

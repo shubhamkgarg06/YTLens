@@ -15,6 +15,8 @@ from app.utils.get_video_folder import get_video_folder
 from app.models.Embedding_model import EmbeddingModel
 from app.models.llm_model import LLMModel
 
+from app.services.final_results_storing.Storing_results import store_final_results
+
 from dotenv import load_dotenv
 import os
 import json
@@ -46,6 +48,7 @@ def main_chat_workflow(video_id , user_message):
         | llm
         | str_output_parser
     )
+    
 
     timestamp_extraction_chain = (
         timestamp_extraction_prompt
@@ -137,4 +140,5 @@ def main_chat_workflow(video_id , user_message):
     if(result and result.strip().upper() != "NONE"):
         return result
     
+    store_final_results(user_message , video_id)
     return "Sorry, I couldn't find an answer to your question based on the video content."
