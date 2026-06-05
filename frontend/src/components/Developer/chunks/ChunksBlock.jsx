@@ -3,19 +3,30 @@ import {useState , useEffect} from 'react'
 import { FileText } from 'lucide-react';
 
 import ChunkDetails from './ChunkDetails';
+import ChunkDetailsVectors from './ChunkDetailsVectors';
 
 
 function ChunksBlock({queryData}) {
 
-    const [chunks , setChunks] = useState([
-        {page_content: "let me show you so I'm going to start with this Loop for X in range five colon now inside of this Loop I'm going to add another loop so for y in range three colon and then in our second Loop I'm going to add a print statement here we can use formatted strings to display coordinates remember formatted strings so we have F followed by quotes now here we add parentheses for our coordinates first we want to display X and then comma followed by y let's run this program and see what happens there you go pretty cool isn't it so we get zero and zero 0o and one zero and two then we get one and zero one and one one and two and so on now let me explain how exactly python interpreter executes this code so here we have two Loops this is what we call the outer loop and this is the inner loop so the execution of our program starts here in the first iteration of this Loop X is zero now we get to this statement which is a child of this four statement because it's indented four times this statement itself is a loop so what we have inside ",
-        metadata: {
-            chunk_index: 76,
-            video_id: "K5KVEU3aaeQ",
-            start_time: 5455.8,
-            end_time: 5544.4800000000005
-        }}
-    ])
+    const [chunks , setChunks] = useState([])
+
+    const [scores , setScores] = useState({})
+
+    function createRankMap(scoreObj) {
+
+    const sortedChunks = Object.entries(scoreObj)
+        .sort((a, b) => b[1] - a[1]);
+
+    const rankMap = {};
+
+    sortedChunks.forEach(([chunkId], index) => {
+        rankMap[chunkId] = index + 1;
+    });
+
+    return rankMap;
+  }
+
+  const [scoreRanks, setScoreRanks] = useState({});
 
     useEffect( () => {
 
@@ -24,8 +35,28 @@ function ChunksBlock({queryData}) {
         }
 
         setChunks(queryData.data.chunks)
+        setScores(queryData?.data?.retrival?.scores ?? {})
+
+       
 
     }, [queryData])
+
+
+    useEffect( () => {
+
+        if (Object.keys(scores ?? {}).length === 0) {
+          setScoreRanks({});
+          return;
+        }
+
+      setScoreRanks({
+          vector: createRankMap(scores.vector || {}),
+          BM25: createRankMap(scores.BM25 || {}),
+          rrf: createRankMap(scores.rrf || {}),
+          reranking: createRankMap(scores.reranking || {})
+      });
+
+    } , [scores])
 
     return (
         <div className="border
@@ -43,7 +74,7 @@ function ChunksBlock({queryData}) {
                 <FileText size = {18} className="text-orange-400" />
 
                 <p className="
-                 text-sm font-semibold
+                 text-base font-semibold
                  text-gray-900 dark:text-white
                 ">
                     Chunks 
@@ -51,12 +82,24 @@ function ChunksBlock({queryData}) {
 
             </div>
 
-            <div className="flex flex-col gap-1">
+            {(Object.keys(scores).length === 0) ?
+
+            <div className="flex flex-col gap-2">
 
                 {chunks.map((chunk , index) => {
-                    return <ChunkDetails key = {index} chunk={chunk} />
+                    return <ChunkDetails key={index} chunk={chunk} />
                 })} 
             </div>
+
+            :
+
+            <div className="flex flex-col gap-2">
+                {chunks.map((chunk , index) => {
+                    return <ChunkDetailsVectors key={index} chunk={chunk}  scores={scores} chunk_id={chunk.metadata.chunk_index} scoreRanks={scoreRanks}/>
+                })
+                }
+            </div>
+            }
         </div>
     );
 }

@@ -2,7 +2,7 @@ from app.utils.get_video_folder import get_video_folder
 
 import json
 
-def store_final_results(user_message , video_id , response="" , documents=[] , response_type="" , reformulated_query = "" ):
+def store_final_results(user_message , video_id , response="" , documents=[] , response_type="" , reformulated_query = "" , retrival = [] ):
 
     video_folder = get_video_folder(video_id)
 
@@ -14,10 +14,6 @@ def store_final_results(user_message , video_id , response="" , documents=[] , r
         if existing_results.strip() == "":
             existing_results = "[]"
         existing_results = json.loads(existing_results)
-    
-
-    if reformulated_query == "" :
-        reformulated_query = user_message
 
     
     new_result_entry = {
@@ -34,7 +30,8 @@ def store_final_results(user_message , video_id , response="" , documents=[] , r
                 }
                 for doc in documents
             ],
-            "response": response
+            "response": response,
+            "retrival": retrival
         }
     }
 

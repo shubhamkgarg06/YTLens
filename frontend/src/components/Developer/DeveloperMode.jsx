@@ -1,5 +1,6 @@
 import QueryBlock from "./Query/QueryBlock";
 import ChunksBlock from "./chunks/ChunksBlock";
+import RetrivalBlock from "./Retrival/RetrivalBlock";
 import { SquareCode } from 'lucide-react';
 import {useState} from 'react'
 
@@ -8,7 +9,7 @@ function DeveloperMode() {
     const [queryData , setQueryData] = useState("")
 
     return (
-        <div className={`relative h-full flex flex-col w-full max-w-6xl p-4 rounded-2xl overflow-auto dark:bg-gray-800  bg-gray-300 `}>
+        <div className={`relative h-full flex flex-col w-full p-4 rounded-2xl overflow-y-auto dark:bg-gray-800  bg-gray-300 `}>
 
             {/* HEADER */}
             <div className="
@@ -25,13 +26,14 @@ function DeveloperMode() {
             </div>
 
             <div className="flex flex-col h-full gap-2 overflow-y-auto">
-                <div className="h-1/2 overflow-auto">
-                    <QueryBlock queryData={queryData} setQueryData={setQueryData}/>
-                </div>
                 
-                <div className="h-1/2 overflow-auto">
+                    <QueryBlock queryData={queryData} setQueryData={setQueryData}/>
+                
                     <ChunksBlock queryData={queryData} />
-                </div>
+
+                    {Object.keys(queryData?.data?.retrival || {}).length > 0 && (
+                        <RetrivalBlock queryData={queryData} />
+                      )} 
                 
             </div>
         </div>

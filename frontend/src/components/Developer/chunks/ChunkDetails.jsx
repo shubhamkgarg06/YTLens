@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { format_seconds_to_time } from "../../../helpers/FormatDuration";
 
-function ChunkDetails({ chunk , key}) {
+function ChunkDetails({ chunk}) {
   const [expanded, setExpanded] = useState(false);
 
   return (
@@ -13,11 +13,20 @@ function ChunkDetails({ chunk , key}) {
         border-gray-200
         dark:border-gray-700
 
+        border-l-4
+         border-l-emerald-500
+         dark:border-l-emerald-500
+
         bg-white
         dark:bg-slate-800/80
         
         hover:bg-gray-50
         dark:hover:bg-slate-800
+
+        hover:border-gray-300
+        dark:hover:border-slate-600
+
+        hover:shadow-md
 
         transition-all
         duration-200
