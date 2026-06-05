@@ -85,6 +85,11 @@ def ingest_video(video_url):
         f.write("[]")
     
 
+  
+    
+
+    
+
     print("Processing Complete.")
     
     return

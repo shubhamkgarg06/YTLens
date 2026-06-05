@@ -21,7 +21,7 @@ function QueryBlock({queryData , setQueryData}) {
                 <BookAudio size = {18} className="text-orange-400" />
 
                 <p className="
-                 text-sm font-semibold
+                 text-base font-semibold
                  text-gray-900 dark:text-white
                 ">
                     Query
@@ -31,7 +31,13 @@ function QueryBlock({queryData , setQueryData}) {
 
             <OriginalQuerySelector setQueryData={setQueryData}/>
             <ResponseQuery label="Query Type" response={queryData==="" ? "N/A" : queryData.data.response_type} />
-            <ResponseQuery label="Reformulated Query" response={queryData==="" ? "N/A" : queryData.data.reformulated_query} />
+
+            {queryData?.data?.reformulated_query?.trim() && (
+                <ResponseQuery
+                    label="Reformulated Query"
+                    response={queryData.data.reformulated_query}
+                />
+            )}
         </div>
     );
 }

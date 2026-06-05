@@ -57,7 +57,7 @@ def get_response_semantic_type_query(user_message, chat_history, video_id , chai
         # STEP 1 -> SEMANTIC RETRIEVAL
         # =================================================
 
-        docs = retrieval_pipeline(vector_store, bm25_retriever, reranker , documents, refined_question)
+        docs , retrival = retrieval_pipeline(vector_store, bm25_retriever, reranker , documents, refined_question)
 
 
         # =================================================
@@ -85,7 +85,8 @@ def get_response_semantic_type_query(user_message, chat_history, video_id , chai
             result,
             docs,
             "Vector DB Retrieval Type Query",
-            refined_question
+            refined_question,
+            retrival
         )
 
         return result

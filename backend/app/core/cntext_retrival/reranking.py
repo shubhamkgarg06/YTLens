@@ -1,6 +1,7 @@
 from rank_bm25 import BM25Okapi
 from app.utils.get_video_folder import get_video_folder
 
+from app.core.cntext_retrival.Storing_scores.storing_retrival_scores import store_scores
 import pickle
 import os
 
@@ -38,9 +39,7 @@ def create_bm25_index(docs , video_id):
     return bm25
 
 
-# =====================================================
-# LOAD RERANKER
-# =====================================================
+
 
 
 
@@ -68,9 +67,15 @@ def retrieval_pipeline(
     query,
     top_k_vector=10,
     top_k_bm25=10,
-    top_k_rrf=10,
-    score_threshold=0.75
+    top_k_rrf=10
 ):
+
+
+    #---------------------------------------------------------
+    # Creating a Dictionary to store scores
+    #---------------------------------------------------------
+
+    scores = {}
 
     # -------------------------------------------------
     # STEP 1 -> VECTOR RETRIEVAL
@@ -80,6 +85,8 @@ def retrieval_pipeline(
         query,
         k=top_k_vector
     )
+
+    scores = store_scores(vector_results , scores , "vector")
 
     vector_ranked_docs = [
         doc
@@ -106,6 +113,8 @@ def retrieval_pipeline(
         reverse=True
     )
 
+    scores = store_scores(bm25_doc_scores[:top_k_bm25] , scores , "BM25")
+
     bm25_ranked_docs = [
         doc
         for doc, score in bm25_doc_scores[:top_k_bm25]
@@ -125,10 +134,10 @@ def retrieval_pipeline(
         start=1
     ):
 
-        content = doc.page_content
+        chunk_id = doc.metadata["chunk_index"]
 
-        rrf_scores[content] = (
-            rrf_scores.get(content, 0)
+        rrf_scores[chunk_id] = (
+            rrf_scores.get(chunk_id, 0)
             +
             rrf_score(rank)
         )
@@ -140,10 +149,10 @@ def retrieval_pipeline(
         start=1
     ):
 
-        content = doc.page_content
+        chunk_id = doc.metadata["chunk_index"]
 
-        rrf_scores[content] = (
-            rrf_scores.get(content, 0)
+        rrf_scores[chunk_id] = (
+            rrf_scores.get(chunk_id, 0)
             +
             rrf_score(rank)
         )
@@ -164,16 +173,24 @@ def retrieval_pipeline(
     # STEP 5 -> GET TOP RRF DOCS
     # -------------------------------------------------
 
-    content_to_doc = {
-        doc.page_content: doc
+    chunkid_to_doc = {
+        doc.metadata["chunk_index"]: doc
         for doc in docs
     }
 
     retrieved_docs = [
-        content_to_doc[content]
-        for content, score
+        chunkid_to_doc[chunk_id]
+        for chunk_id, score
         in rrf_ranked_docs[:top_k_rrf]
     ]
+
+    retrived_rrf_scores = [
+        (chunkid_to_doc[chunk_id] , score)
+        for chunk_id, score
+        in rrf_ranked_docs[:top_k_rrf]
+    ]
+
+    scores = store_scores(retrived_rrf_scores , scores , "rrf")
 
 
     # -------------------------------------------------
@@ -208,21 +225,43 @@ def retrieval_pipeline(
         reverse=True
     )
 
+    scores = store_scores(reranked_docs , scores , "reranking")
+
 
     # -------------------------------------------------
     # STEP 9 -> FINAL TOP DOCS
     # -------------------------------------------------
 
+    if not reranked_docs:
+        return [[], {"scores": scores, "threshold": {}}]
+
+    best_score = reranked_docs[0][1]
+
     final_docs = [
         doc
         for doc, score in reranked_docs
-        if score >= score_threshold
+        if score >= best_score * 0.8
     ]
 
-    if not final_docs:
 
-        final_docs = [
-            reranked_docs[0][0]
-        ]
+    #---------------------------------------------------------
+    # Storing the thresholds for each type of retrival
+    #---------------------------------------------------------
 
-    return final_docs
+    thresholds = {
+        "vector" : f"{top_k_vector} chunks",
+        "bm25" : f"{top_k_bm25} chunks",
+        "rrf" : f"{top_k_rrf} chunks",
+        "reranking" : " > best * 0.8"
+    }
+
+
+    retrival = {
+        "scores" : scores,
+        "threshold" : thresholds
+    }
+
+
+
+
+    return [final_docs , retrival]
