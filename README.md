@@ -1,8 +1,22 @@
 # 🎥 YTLens
+![React](https://img.shields.io/badge/Frontend-React-blue)
+![Python](https://img.shields.io/badge/Language-Python-yellow)
+![FastAPI](https://img.shields.io/badge/FastAPI-Backend-green)
+![LangChain](https://img.shields.io/badge/LangChain-RAG-orange)
+![ChromaDB](https://img.shields.io/badge/VectorDB-ChromaDB-purple)
+![BM25](https://img.shields.io/badge/Retrieval-BM25-teal)
+![RRF](https://img.shields.io/badge/Fusion-RRF-red)
+![Cross-Encoder](https://img.shields.io/badge/Reranking-Cross--Encoder-orange)
+![Developer%20Mode](https://img.shields.io/badge/Feature-Developer%20Mode-black)
+
+
 
 YTLens is an AI-powered YouTube chatbot that enables users to interact with YouTube videos through natural language. Simply paste a YouTube video URL, and YTLens processes the video transcript, builds a Retrieval-Augmented Generation (RAG) pipeline, and allows users to ask questions about the video's content.
 
 Instead of manually searching through long videos, users can instantly retrieve relevant information, summaries, explanations, and timestamps through a conversational interface.
+
+> YTLens combines transcript processing, hybrid retrieval (Vector Search + BM25), Reciprocal Rank Fusion (RRF), and Cross-Encoder Reranking to deliver accurate, context-aware answers grounded in YouTube video content.
+
 
 ---
 ## 📸 Application Preview
@@ -73,6 +87,18 @@ This makes debugging and retrieval optimization significantly easier.
 ## 🧠 Query Processing Workflows
 
 YTLens uses multiple query processing workflows to handle different types of user questions efficiently. Instead of sending every query through the same retrieval pipeline, the system first identifies the query type and routes it to the most appropriate workflow.
+```text
+                User Query
+                     │
+                     ▼
+             Query Analyzer
+                     │
+        ┌────────────┼────────────┐
+        ▼            ▼            ▼
+     Timestamp    Timestamp     Semantic
+       Range       Intent       Retrieval
+      Workflow     Workflow      Workflow
+```
 
 ### 1. Timestamp Range Workflow
 
@@ -174,7 +200,7 @@ Text Chunking
       ├── Vector Retrieval
       ├── BM25 Retrieval
       ▼
- Recipocal Rank Fusion
+ Reciprocal Rank Fusion
       │
       ▼
  Cross Encoder Reranker
@@ -194,20 +220,17 @@ Text Chunking
 ## 🛠️ Tech Stack
 
 ### Frontend
-
 * React
 * Vite
 * Tailwind CSS
 * YouTube IFrame Player API (embedded video playback)
 
 ### Backend
-
 * Python
 * LangChain
 * FastAPI
 
 ### YouTube Integration
-
 * YouTube Transcript API for transcript extraction
 * yt-dlp for video metadata retrieval
 * YouTube IFrame Player for synchronized video playback
@@ -224,9 +247,36 @@ Text Chunking
 * Embeddings Model - Hugging Face (BAAI/bge-small-en)
 * Large Language Model (LLM) - Grok (llama-3.3-70b-versatile)
 
+
 ---
+## 📂 Project Structure
+
+```text
+YTLens
+├── frontend
+│   └── src
+│       ├── components
+│       ├── context
+│       └── helpers
+│
+├── backend
+│   ├── app
+│   │   ├── api
+│   │   ├── core
+│   │   ├── models
+│   │   ├── services
+│   │   ├── utils
+│   │   └── main.py
+│   ├── data
+│   └── venv
+│
+├── images
+│
+└── README.md
+```
 
 
+---
 ## ⚙️ Installation
 
 ### Clone Repository
@@ -240,14 +290,14 @@ cd YTLens
 
 ```bash
 cd backend
-
 pip install -r requirements.txt
 ```
 
 Create a `.env` file and add your API keys.
 
 ```env
-OPENAI_API_KEY=your_key
+GROQ_API_KEY=your_key
+HUGGINGFACE_API_KEY=your_key
 ```
 
 Run backend:
@@ -287,7 +337,16 @@ Explain the concept discussed at the beginning of the video.
 
 ## 🔬 Retrieval Pipeline
 
-YTLens uses a multi-stage retrieval architecture:
+YTLens uses a multi-stage retrieval architecture
+
+### Why Hybrid Retrieval?
+
+Vector retrieval captures semantic meaning but may miss exact keyword matches.
+
+BM25 captures exact terminology but lacks semantic understanding.
+
+Combining both through Reciprocal Rank Fusion provides stronger retrieval performance than either method alone.
+
 
 ### 1. Vector Retrieval
 
@@ -313,11 +372,12 @@ Top-ranked chunks are passed to the LLM for answer generation.
 
 ## 🔮 Future Improvements
 
-* Multiple query workflows
+* Multi-video knowledge base
 * Video summarization
 * Chat history persistence
 * Source citations
 * Retrieval analytics enhancements
+* User Authentication
 * Multi-language support
 
 ---
