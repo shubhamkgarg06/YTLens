@@ -1,27 +1,26 @@
-# Youtube API
 youtube-transcript-api
 deep-translator
 
-#langchain
 langchain
-langchain_core
+langchain-core
 langchain-community
-langchain-text-splitter
+langchain-text-splitters
 
-langchain_huggingface
-
-langchain_groq
+langchain-huggingface
+langchain-groq
 langchain-chroma
+
+chromadb
 
 rank-bm25
 
+sentence-transformers
+torch
 
 python-dotenv
 
+fastapi
+uvicorn[standard]
 
-sentence-transformers
-
-fastapi 
-uvicorn 
-yt_dlp
+yt-dlp
 python-multipart
