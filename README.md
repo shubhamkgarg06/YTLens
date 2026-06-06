@@ -175,45 +175,7 @@ This workflow is used for the majority of user questions.
 
 ## 🏗️ System Architecture
 
-```text
-YouTube URL
-      │
-      ▼
-Transcript Extraction
-      │
-      ▼
-Text Chunking
-      │
-      ▼
- ┌───────────────┐
- │ Embeddings    │
- └───────────────┘
-      │
-      ▼
- Vector Database
-      │
-      ▼
- ┌───────────────┐
- │ Hybrid Search │
- └───────────────┘
-      │
-      ├── Vector Retrieval
-      ├── BM25 Retrieval
-      ▼
- Reciprocal Rank Fusion
-      │
-      ▼
- Cross Encoder Reranker
-      │
-      ▼
- Context Selection
-      │
-      ▼
- Large Language Model
-      │
-      ▼
- Final Answer
-```
+![YTLens Architechture](images/architechture-YTLens.png)
 
 ---
 
