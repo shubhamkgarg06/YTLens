@@ -4,6 +4,8 @@ import { useState } from 'react';
 import { LoaderCircle } from 'lucide-react';
 import useChatblockMessages from '../../context/ChatblockMessagesContext';
 
+import { API_URL } from "./config";
+
 function InputBox() {
 
     const [input, setInput] = useState("");
@@ -42,7 +44,7 @@ function InputBox() {
 
         try {
 
-            const res = await fetch(`http://127.0.0.1:8000/${videoID}/ask`, {
+            const res = await fetch(`${API_URL}/${videoID}/ask`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
