@@ -3,6 +3,9 @@ import { ChevronDown } from "lucide-react";
 import useChatblockMessages from "../../../context/ChatblockMessagesContext";
 import useVideo from "../../../context/VideoContext";
 
+import { API_URL } from "./config";
+
+
 function OriginalQuerySelector({ setQueryData }) {
   const { queries } = useChatblockMessages();
   const { videoID } = useVideo();
@@ -42,7 +45,7 @@ function OriginalQuerySelector({ setQueryData }) {
   const fetchData = async (id) => {
     try {
       const res = await fetch(
-        `http://127.0.0.1:8000/developer_mode_data/${videoID}/${id}`,
+        `{API_URL}/developer_mode_data/${videoID}/${id}`,
         {
           method: "GET",
         }
