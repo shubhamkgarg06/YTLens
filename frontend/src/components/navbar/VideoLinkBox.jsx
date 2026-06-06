@@ -1,6 +1,7 @@
 import { MessageSquareCheck } from "lucide-react";
 import { useState } from "react";
 import  useVideo  from "../../context/VideoContext";
+import { API_URL } from "./config";
 
 function VideoLinkBox() {
 
@@ -30,7 +31,7 @@ function VideoLinkBox() {
 
             setLoadingDone(true);
 
-            const res = await fetch("http://127.0.0.1:8000/video-info", {
+            const res = await fetch(`${API_URL}/video-info`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
