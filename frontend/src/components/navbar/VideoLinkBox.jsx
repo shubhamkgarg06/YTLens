@@ -1,7 +1,7 @@
 import { MessageSquareCheck } from "lucide-react";
 import { useState } from "react";
 import  useVideo  from "../../context/VideoContext";
-import { API_URL } from "./config";
+import { API_URL } from "../../config";
 
 function VideoLinkBox() {
 

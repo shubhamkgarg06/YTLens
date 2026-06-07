@@ -3,7 +3,7 @@ import { ChevronDown } from "lucide-react";
 import useChatblockMessages from "../../../context/ChatblockMessagesContext";
 import useVideo from "../../../context/VideoContext";
 
-import { API_URL } from "./config";
+import { API_URL } from "../../../config";
 
 
 function OriginalQuerySelector({ setQueryData }) {
@@ -45,7 +45,7 @@ function OriginalQuerySelector({ setQueryData }) {
   const fetchData = async (id) => {
     try {
       const res = await fetch(
-        `{API_URL}/developer_mode_data/${videoID}/${id}`,
+        `${API_URL}/developer_mode_data/${videoID}/${id}`,
         {
           method: "GET",
         }

@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { LoaderCircle } from 'lucide-react';
 import useChatblockMessages from '../../context/ChatblockMessagesContext';
 
-import { API_URL } from "./config";
+import { API_URL } from "../../config";
 
 function InputBox() {
 
